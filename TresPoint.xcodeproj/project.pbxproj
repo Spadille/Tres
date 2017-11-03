@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11EBE6BA1FACD7CD00171DC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6B91FACD7CD00171DC8 /* AppDelegate.swift */; };
+		11EBE6BC1FACD7CD00171DC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6BB1FACD7CD00171DC8 /* ViewController.swift */; };
+		11EBE6BF1FACD7CD00171DC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11EBE6BD1FACD7CD00171DC8 /* Main.storyboard */; };
+		11EBE6C21FACD7CD00171DC8 /* TresPoint.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6C01FACD7CD00171DC8 /* TresPoint.xcdatamodeld */; };
+		11EBE6C41FACD7CD00171DC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11EBE6C31FACD7CD00171DC8 /* Assets.xcassets */; };
+		11EBE6C71FACD7CD00171DC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11EBE6C51FACD7CD00171DC8 /* LaunchScreen.storyboard */; };
+		11EBE6D21FACD7CD00171DC8 /* TresPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6D11FACD7CD00171DC8 /* TresPointTests.swift */; };
+		11EBE6DD1FACD7CD00171DC8 /* TresPointUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6DC1FACD7CD00171DC8 /* TresPointUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		11EBE6CE1FACD7CD00171DC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11EBE6AE1FACD7CD00171DC8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11EBE6B51FACD7CD00171DC8;
+			remoteInfo = TresPoint;
+		};
+		11EBE6D91FACD7CD00171DC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11EBE6AE1FACD7CD00171DC8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11EBE6B51FACD7CD00171DC8;
+			remoteInfo = TresPoint;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		11EBE6B61FACD7CD00171DC8 /* TresPoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TresPoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		11EBE6B91FACD7CD00171DC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		11EBE6BB1FACD7CD00171DC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		11EBE6BE1FACD7CD00171DC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		11EBE6C11FACD7CD00171DC8 /* TresPoint.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TresPoint.xcdatamodel; sourceTree = "<group>"; };
+		11EBE6C31FACD7CD00171DC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		11EBE6C61FACD7CD00171DC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		11EBE6C81FACD7CD00171DC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11EBE6CD1FACD7CD00171DC8 /* TresPointTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TresPointTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		11EBE6D11FACD7CD00171DC8 /* TresPointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TresPointTests.swift; sourceTree = "<group>"; };
+		11EBE6D31FACD7CD00171DC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11EBE6D81FACD7CD00171DC8 /* TresPointUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TresPointUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		11EBE6DC1FACD7CD00171DC8 /* TresPointUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TresPointUITests.swift; sourceTree = "<group>"; };
+		11EBE6DE1FACD7CD00171DC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		11EBE6B31FACD7CD00171DC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11EBE6CA1FACD7CD00171DC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11EBE6D51FACD7CD00171DC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11EBE6AD1FACD7CD00171DC8 = {
+			isa = PBXGroup;
+			children = (
+				11EBE6B81FACD7CD00171DC8 /* TresPoint */,
+				11EBE6D01FACD7CD00171DC8 /* TresPointTests */,
+				11EBE6DB1FACD7CD00171DC8 /* TresPointUITests */,
+				11EBE6B71FACD7CD00171DC8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		11EBE6B71FACD7CD00171DC8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				11EBE6B61FACD7CD00171DC8 /* TresPoint.app */,
+				11EBE6CD1FACD7CD00171DC8 /* TresPointTests.xctest */,
+				11EBE6D81FACD7CD00171DC8 /* TresPointUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		11EBE6B81FACD7CD00171DC8 /* TresPoint */ = {
+			isa = PBXGroup;
+			children = (
+				11EBE6B91FACD7CD00171DC8 /* AppDelegate.swift */,
+				11EBE6BB1FACD7CD00171DC8 /* ViewController.swift */,
+				11EBE6BD1FACD7CD00171DC8 /* Main.storyboard */,
+				11EBE6C31FACD7CD00171DC8 /* Assets.xcassets */,
+				11EBE6C51FACD7CD00171DC8 /* LaunchScreen.storyboard */,
+				11EBE6C81FACD7CD00171DC8 /* Info.plist */,
+				11EBE6C01FACD7CD00171DC8 /* TresPoint.xcdatamodeld */,
+			);
+			path = TresPoint;
+			sourceTree = "<group>";
+		};
+		11EBE6D01FACD7CD00171DC8 /* TresPointTests */ = {
+			isa = PBXGroup;
+			children = (
+				11EBE6D11FACD7CD00171DC8 /* TresPointTests.swift */,
+				11EBE6D31FACD7CD00171DC8 /* Info.plist */,
+			);
+			path = TresPointTests;
+			sourceTree = "<group>";
+		};
+		11EBE6DB1FACD7CD00171DC8 /* TresPointUITests */ = {
+			isa = PBXGroup;
+			children = (
+				11EBE6DC1FACD7CD00171DC8 /* TresPointUITests.swift */,
+				11EBE6DE1FACD7CD00171DC8 /* Info.plist */,
+			);
+			path = TresPointUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		11EBE6B51FACD7CD00171DC8 /* TresPoint */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11EBE6E11FACD7CD00171DC8 /* Build configuration list for PBXNativeTarget "TresPoint" */;
+			buildPhases = (
+				11EBE6B21FACD7CD00171DC8 /* Sources */,
+				11EBE6B31FACD7CD00171DC8 /* Frameworks */,
+				11EBE6B41FACD7CD00171DC8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TresPoint;
+			productName = TresPoint;
+			productReference = 11EBE6B61FACD7CD00171DC8 /* TresPoint.app */;
+			productType = "com.apple.product-type.application";
+		};
+		11EBE6CC1FACD7CD00171DC8 /* TresPointTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11EBE6E41FACD7CD00171DC8 /* Build configuration list for PBXNativeTarget "TresPointTests" */;
+			buildPhases = (
+				11EBE6C91FACD7CD00171DC8 /* Sources */,
+				11EBE6CA1FACD7CD00171DC8 /* Frameworks */,
+				11EBE6CB1FACD7CD00171DC8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11EBE6CF1FACD7CD00171DC8 /* PBXTargetDependency */,
+			);
+			name = TresPointTests;
+			productName = TresPointTests;
+			productReference = 11EBE6CD1FACD7CD00171DC8 /* TresPointTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		11EBE6D71FACD7CD00171DC8 /* TresPointUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11EBE6E71FACD7CD00171DC8 /* Build configuration list for PBXNativeTarget "TresPointUITests" */;
+			buildPhases = (
+				11EBE6D41FACD7CD00171DC8 /* Sources */,
+				11EBE6D51FACD7CD00171DC8 /* Frameworks */,
+				11EBE6D61FACD7CD00171DC8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11EBE6DA1FACD7CD00171DC8 /* PBXTargetDependency */,
+			);
+			name = TresPointUITests;
+			productName = TresPointUITests;
+			productReference = 11EBE6D81FACD7CD00171DC8 /* TresPointUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		11EBE6AE1FACD7CD00171DC8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Shiyu Zhang";
+				TargetAttributes = {
+					11EBE6B51FACD7CD00171DC8 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					11EBE6CC1FACD7CD00171DC8 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 11EBE6B51FACD7CD00171DC8;
+					};
+					11EBE6D71FACD7CD00171DC8 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 11EBE6B51FACD7CD00171DC8;
+					};
+				};
+			};
+			buildConfigurationList = 11EBE6B11FACD7CD00171DC8 /* Build configuration list for PBXProject "TresPoint" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 11EBE6AD1FACD7CD00171DC8;
+			productRefGroup = 11EBE6B71FACD7CD00171DC8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				11EBE6B51FACD7CD00171DC8 /* TresPoint */,
+				11EBE6CC1FACD7CD00171DC8 /* TresPointTests */,
+				11EBE6D71FACD7CD00171DC8 /* TresPointUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		11EBE6B41FACD7CD00171DC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11EBE6C71FACD7CD00171DC8 /* LaunchScreen.storyboard in Resources */,
+				11EBE6C41FACD7CD00171DC8 /* Assets.xcassets in Resources */,
+				11EBE6BF1FACD7CD00171DC8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11EBE6CB1FACD7CD00171DC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11EBE6D61FACD7CD00171DC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		11EBE6B21FACD7CD00171DC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11EBE6BC1FACD7CD00171DC8 /* ViewController.swift in Sources */,
+				11EBE6BA1FACD7CD00171DC8 /* AppDelegate.swift in Sources */,
+				11EBE6C21FACD7CD00171DC8 /* TresPoint.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11EBE6C91FACD7CD00171DC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11EBE6D21FACD7CD00171DC8 /* TresPointTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11EBE6D41FACD7CD00171DC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11EBE6DD1FACD7CD00171DC8 /* TresPointUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		11EBE6CF1FACD7CD00171DC8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11EBE6B51FACD7CD00171DC8 /* TresPoint */;
+			targetProxy = 11EBE6CE1FACD7CD00171DC8 /* PBXContainerItemProxy */;
+		};
+		11EBE6DA1FACD7CD00171DC8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11EBE6B51FACD7CD00171DC8 /* TresPoint */;
+			targetProxy = 11EBE6D91FACD7CD00171DC8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		11EBE6BD1FACD7CD00171DC8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				11EBE6BE1FACD7CD00171DC8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		11EBE6C51FACD7CD00171DC8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				11EBE6C61FACD7CD00171DC8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		11EBE6DF1FACD7CD00171DC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		11EBE6E01FACD7CD00171DC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		11EBE6E21FACD7CD00171DC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4CNF88RDC6;
+				INFOPLIST_FILE = TresPoint/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = syz.TresPoint;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		11EBE6E31FACD7CD00171DC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4CNF88RDC6;
+				INFOPLIST_FILE = TresPoint/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = syz.TresPoint;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		11EBE6E51FACD7CD00171DC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4CNF88RDC6;
+				INFOPLIST_FILE = TresPointTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = syz.TresPointTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TresPoint.app/TresPoint";
+			};
+			name = Debug;
+		};
+		11EBE6E61FACD7CD00171DC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4CNF88RDC6;
+				INFOPLIST_FILE = TresPointTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = syz.TresPointTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TresPoint.app/TresPoint";
+			};
+			name = Release;
+		};
+		11EBE6E81FACD7CD00171DC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4CNF88RDC6;
+				INFOPLIST_FILE = TresPointUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = syz.TresPointUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TresPoint;
+			};
+			name = Debug;
+		};
+		11EBE6E91FACD7CD00171DC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4CNF88RDC6;
+				INFOPLIST_FILE = TresPointUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = syz.TresPointUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TresPoint;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		11EBE6B11FACD7CD00171DC8 /* Build configuration list for PBXProject "TresPoint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11EBE6DF1FACD7CD00171DC8 /* Debug */,
+				11EBE6E01FACD7CD00171DC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11EBE6E11FACD7CD00171DC8 /* Build configuration list for PBXNativeTarget "TresPoint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11EBE6E21FACD7CD00171DC8 /* Debug */,
+				11EBE6E31FACD7CD00171DC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11EBE6E41FACD7CD00171DC8 /* Build configuration list for PBXNativeTarget "TresPointTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11EBE6E51FACD7CD00171DC8 /* Debug */,
+				11EBE6E61FACD7CD00171DC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11EBE6E71FACD7CD00171DC8 /* Build configuration list for PBXNativeTarget "TresPointUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11EBE6E81FACD7CD00171DC8 /* Debug */,
+				11EBE6E91FACD7CD00171DC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		11EBE6C01FACD7CD00171DC8 /* TresPoint.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				11EBE6C11FACD7CD00171DC8 /* TresPoint.xcdatamodel */,
+			);
+			currentVersion = 11EBE6C11FACD7CD00171DC8 /* TresPoint.xcdatamodel */;
+			path = TresPoint.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 11EBE6AE1FACD7CD00171DC8 /* Project object */;
+}
