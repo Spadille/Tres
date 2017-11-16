@@ -16,10 +16,11 @@ class NewMessageViewController: UITableViewController {
     let cellId = "cellId"
     
     var users = [User]()
+    
+    var messageController: HomeViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancel))
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
         fetchUser()
@@ -32,6 +33,8 @@ class NewMessageViewController: UITableViewController {
                 user.name = dict["name"] as? String
                 user.email = dict["email"] as? String
                 user.phonenumber = dict["phonenumber"] as? String
+                user.profileImage = dict["imageURL"] as? String
+                user.id = snapshot.key
                 self.users.append(user)
                 //print(user.email,user.name)
                 DispatchQueue.main.async {
@@ -61,25 +64,44 @@ class NewMessageViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return users.count
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dismiss(animated: true) {
+            //print("dismissed")
+            let user = self.users[indexPath.row]
+            self.messageController?.showchatvc(user: user)
+            //print(self.user.name)
+        }
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! UserCell
         let user = users[indexPath.row]
         cell.textLabel?.text = user.name
         cell.detailTextLabel?.text = user.email
+        //cell.imageView?.image = UIImage(named: "messi")
+        //cell.imageView?.contentMode = .scaleAspectFill
+        
+        if let profileImageUrl = user.profileImage {
+            let url = URL(string: profileImageUrl)
+            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                if error != nil {
+                    print(error!.localizedDescription)
+                    return
+                }
+                DispatchQueue.main.async {
+                    cell.profileImageView.image = UIImage(data: data!)
+                    //cell.imageView?.image = UIImage(data: data!)
+                }
+                
+            }).resume()
+        }
         return cell
     }
-
-}
-
-class UserCell: UITableViewCell {
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-    }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 72
     }
-    
+
 }

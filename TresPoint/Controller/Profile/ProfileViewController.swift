@@ -11,7 +11,8 @@ import UIKit
 let min_header: CGFloat = 22
 let bar_offset: CGFloat = 110
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIScrollViewDelegate, SubScrollDelegate {
+    
     
     let imageProfile: UIImageView = {
         let imageView = UIImageView()
@@ -43,12 +44,14 @@ class ProfileViewController: UIViewController {
         let cv = UIView()
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.isOpaque = false
-        cv.perform(#selector(handleContainer), with: nil, afterDelay: 0)
+        //cv.perform(#selector(handleContainer), with: nil, afterDelay: 0)
         return cv
     }()
     
     @objc func handleContainer(){
-        let vc = 
+        let vc = ProfileVC()
+        vc.delegate = self
+        self.present(vc, animated: true, completion: nil)
     }
     
     let barView:UIView = {
@@ -68,8 +71,8 @@ class ProfileViewController: UIViewController {
     }()
     
     @objc func handleSegement(){
-        let title = segementView.titleForSegment(at: segementView.selectedSegmentIndex)
-        print(title)
+//        let title = segementView.titleForSegment(at: segementView.selectedSegmentIndex)
+//        print(title?.debugDescription)
     }
     
     override func viewDidLoad() {
@@ -130,8 +133,9 @@ class ProfileViewController: UIViewController {
         
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
+    
     
     func subScrollViewDidScroll(scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
@@ -165,18 +169,4 @@ class ProfileViewController: UIViewController {
         barTransform = CATransform3DTranslate(barTransform, 0, max(-(imageProfile.bounds.height-min_header+bar_offset), -offset), 0)
         barView.layer.transform = barTransform
     }
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

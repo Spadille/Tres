@@ -7,14 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0635F0A6C003D38AF03860D8 /* Pods_TresPoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2AEC1AFB6449B6EB11E9C1 /* Pods_TresPoint.framework */; };
+		110D07111FB2070200D846D1 /* TempProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110D07101FB2070200D846D1 /* TempProfileViewController.swift */; };
+		110D07131FB20AEA00D846D1 /* TempProfileViewController+handleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110D07121FB20AEA00D846D1 /* TempProfileViewController+handleImage.swift */; };
+		110D07161FB2664300D846D1 /* UIImageView+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110D07151FB2664300D846D1 /* UIImageView+Cache.swift */; };
+		111D0C951FB4AF3600916F72 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D0C941FB4AF3600916F72 /* Messages.swift */; };
+		111D0C971FB4B7F200916F72 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D0C961FB4B7F200916F72 /* UserCell.swift */; };
+		112511FD1FBA105D0044AA0F /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112511FC1FBA105C0044AA0F /* RoundTextField.swift */; };
+		112512001FBA344D0044AA0F /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112511FF1FBA344D0044AA0F /* CalendarCell.swift */; };
+		114ADF2C1FB0F27C009BD57E /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114ADF2B1FB0F27C009BD57E /* ProfileVC.swift */; };
+		114C8FDB1FB53C450011CD65 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C8FDA1FB53C450011CD65 /* ChatMessageCell.swift */; };
+		11544B911FB3B3A10082C919 /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11544B901FB3B3A10082C919 /* ChatLogViewController.swift */; };
+		116369F51FBB441B004DE2AF /* BlogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116369F41FBB441B004DE2AF /* BlogCell.swift */; };
+		11C882EA1FBB80FC0076A405 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C882E91FBB80FC0076A405 /* Post.swift */; };
+		11DA147B1FBCB4C800261D35 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA147A1FBCB4C800261D35 /* PostViewController.swift */; };
+		11EA81BB1FAFC6BA008D67A7 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA81BA1FAFC6BA008D67A7 /* NewMessageViewController.swift */; };
+		11EA81BD1FB00B7C008D67A7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA81BC1FB00B7C008D67A7 /* User.swift */; };
+		11EA81BF1FB01EAC008D67A7 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA81BE1FB01EAC008D67A7 /* TabBarViewController.swift */; };
+		11EA81C11FB01FA1008D67A7 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA81C01FB01FA1008D67A7 /* CustomTabBar.swift */; };
+		11EA81C31FB01FB8008D67A7 /* CustomTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA81C21FB01FB8008D67A7 /* CustomTabBarItem.swift */; };
+		11EA81C51FB01FDC008D67A7 /* CustomTabAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA81C41FB01FDC008D67A7 /* CustomTabAnimatedTransitioning.swift */; };
+		11EA81C71FB026BD008D67A7 /* BlogPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA81C61FB026BD008D67A7 /* BlogPostViewController.swift */; };
+		11EA81C91FB026EB008D67A7 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA81C81FB026EB008D67A7 /* CalendarViewController.swift */; };
+		11EA81CB1FB02BA6008D67A7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA81CA1FB02BA6008D67A7 /* ProfileViewController.swift */; };
+		11EA9C4C1FAE4D2F006B6B53 /* UIColor+staicColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA9C4B1FAE4D2F006B6B53 /* UIColor+staicColor.swift */; };
+		11EA9C4E1FAE60AF006B6B53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11EA9C4D1FAE60AF006B6B53 /* GoogleService-Info.plist */; };
 		11EBE6BA1FACD7CD00171DC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6B91FACD7CD00171DC8 /* AppDelegate.swift */; };
-		11EBE6BC1FACD7CD00171DC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6BB1FACD7CD00171DC8 /* ViewController.swift */; };
-		11EBE6BF1FACD7CD00171DC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11EBE6BD1FACD7CD00171DC8 /* Main.storyboard */; };
+		11EBE6BC1FACD7CD00171DC8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6BB1FACD7CD00171DC8 /* HomeViewController.swift */; };
 		11EBE6C21FACD7CD00171DC8 /* TresPoint.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6C01FACD7CD00171DC8 /* TresPoint.xcdatamodeld */; };
 		11EBE6C41FACD7CD00171DC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11EBE6C31FACD7CD00171DC8 /* Assets.xcassets */; };
 		11EBE6C71FACD7CD00171DC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11EBE6C51FACD7CD00171DC8 /* LaunchScreen.storyboard */; };
 		11EBE6D21FACD7CD00171DC8 /* TresPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6D11FACD7CD00171DC8 /* TresPointTests.swift */; };
 		11EBE6DD1FACD7CD00171DC8 /* TresPointUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6DC1FACD7CD00171DC8 /* TresPointUITests.swift */; };
+		11EBE6EE1FACDEE000171DC8 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6ED1FACDEE000171DC8 /* UIColor+RGB.swift */; };
+		11EBE6F01FACE81000171DC8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6EF1FACE81000171DC8 /* LoginViewController.swift */; };
+		11EBE6F21FAD0B4000171DC8 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6F11FAD0B4000171DC8 /* RegisterViewController.swift */; };
+		11EBE6F41FAD114500171DC8 /* RemoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6F31FAD114500171DC8 /* RemoteStore.swift */; };
+		11EBE6F61FAD126600171DC8 /* FirebaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6F51FAD126600171DC8 /* FirebaseStore.swift */; };
+		11EBE6F81FAD131D00171DC8 /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBE6F71FAD131D00171DC8 /* FirebaseModel.swift */; };
+		3F62C0BB4AD455B3619765AB /* Pods_TresPointTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B8894FA0F153AD5BA31D265 /* Pods_TresPointTests.framework */; };
+		67314521E114364E305C2FB7 /* Pods_TresPointUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B6809FF7519420BE8B8D7A /* Pods_TresPointUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +67,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03E022AF7B984869C86D387A /* Pods-TresPointTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresPointTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TresPointTests/Pods-TresPointTests.release.xcconfig"; sourceTree = "<group>"; };
+		110D07101FB2070200D846D1 /* TempProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempProfileViewController.swift; sourceTree = "<group>"; };
+		110D07121FB20AEA00D846D1 /* TempProfileViewController+handleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TempProfileViewController+handleImage.swift"; sourceTree = "<group>"; };
+		110D07151FB2664300D846D1 /* UIImageView+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Cache.swift"; sourceTree = "<group>"; };
+		111D0C941FB4AF3600916F72 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		111D0C961FB4B7F200916F72 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		112511FC1FBA105C0044AA0F /* RoundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
+		112511FF1FBA344D0044AA0F /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		114ADF2B1FB0F27C009BD57E /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		114C8FDA1FB53C450011CD65 /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
+		11544B901FB3B3A10082C919 /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
+		116369F41FBB441B004DE2AF /* BlogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogCell.swift; sourceTree = "<group>"; };
+		11C882E91FBB80FC0076A405 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		11DA147A1FBCB4C800261D35 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		11EA81BA1FAFC6BA008D67A7 /* NewMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
+		11EA81BC1FB00B7C008D67A7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		11EA81BE1FB01EAC008D67A7 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		11EA81C01FB01FA1008D67A7 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		11EA81C21FB01FB8008D67A7 /* CustomTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarItem.swift; sourceTree = "<group>"; };
+		11EA81C41FB01FDC008D67A7 /* CustomTabAnimatedTransitioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabAnimatedTransitioning.swift; sourceTree = "<group>"; };
+		11EA81C61FB026BD008D67A7 /* BlogPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostViewController.swift; sourceTree = "<group>"; };
+		11EA81C81FB026EB008D67A7 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		11EA81CA1FB02BA6008D67A7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		11EA9C4B1FAE4D2F006B6B53 /* UIColor+staicColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+staicColor.swift"; sourceTree = "<group>"; };
+		11EA9C4D1FAE60AF006B6B53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		11EBE6B61FACD7CD00171DC8 /* TresPoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TresPoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11EBE6B91FACD7CD00171DC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		11EBE6BB1FACD7CD00171DC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		11EBE6BE1FACD7CD00171DC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		11EBE6BB1FACD7CD00171DC8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		11EBE6C11FACD7CD00171DC8 /* TresPoint.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TresPoint.xcdatamodel; sourceTree = "<group>"; };
 		11EBE6C31FACD7CD00171DC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11EBE6C61FACD7CD00171DC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +105,20 @@
 		11EBE6D81FACD7CD00171DC8 /* TresPointUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TresPointUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11EBE6DC1FACD7CD00171DC8 /* TresPointUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TresPointUITests.swift; sourceTree = "<group>"; };
 		11EBE6DE1FACD7CD00171DC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11EBE6ED1FACDEE000171DC8 /* UIColor+RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
+		11EBE6EF1FACE81000171DC8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		11EBE6F11FAD0B4000171DC8 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		11EBE6F31FAD114500171DC8 /* RemoteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteStore.swift; sourceTree = "<group>"; };
+		11EBE6F51FAD126600171DC8 /* FirebaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStore.swift; sourceTree = "<group>"; };
+		11EBE6F71FAD131D00171DC8 /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
+		2B697F4F519E50E398A25831 /* Pods-TresPointUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresPointUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TresPointUITests/Pods-TresPointUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2B898DABB61817D08D5BA64A /* Pods-TresPointTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresPointTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TresPointTests/Pods-TresPointTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5B8894FA0F153AD5BA31D265 /* Pods_TresPointTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TresPointTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72438A9EF8B77E7020B06700 /* Pods-TresPointUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresPointUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TresPointUITests/Pods-TresPointUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9D52D7695DECBA452FDFF840 /* Pods-TresPoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresPoint.release.xcconfig"; path = "Pods/Target Support Files/Pods-TresPoint/Pods-TresPoint.release.xcconfig"; sourceTree = "<group>"; };
+		BE2AEC1AFB6449B6EB11E9C1 /* Pods_TresPoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TresPoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3E03A89B01F71C907735D33 /* Pods-TresPoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresPoint.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TresPoint/Pods-TresPoint.debug.xcconfig"; sourceTree = "<group>"; };
+		C6B6809FF7519420BE8B8D7A /* Pods_TresPointUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TresPointUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0635F0A6C003D38AF03860D8 /* Pods_TresPoint.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F62C0BB4AD455B3619765AB /* Pods_TresPointTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +142,116 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67314521E114364E305C2FB7 /* Pods_TresPointUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		110D07141FB2661D00D846D1 /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				110D07151FB2664300D846D1 /* UIImageView+Cache.swift */,
+			);
+			path = UIImageView;
+			sourceTree = "<group>";
+		};
+		112511FB1FBA10390044AA0F /* RoundView */ = {
+			isa = PBXGroup;
+			children = (
+				112511FC1FBA105C0044AA0F /* RoundTextField.swift */,
+			);
+			path = RoundView;
+			sourceTree = "<group>";
+		};
+		112511FE1FBA34260044AA0F /* CalendarCell */ = {
+			isa = PBXGroup;
+			children = (
+				112511FF1FBA344D0044AA0F /* CalendarCell.swift */,
+			);
+			path = CalendarCell;
+			sourceTree = "<group>";
+		};
+		114ADF2A1FB0F267009BD57E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				11EA81CA1FB02BA6008D67A7 /* ProfileViewController.swift */,
+				114ADF2B1FB0F27C009BD57E /* ProfileVC.swift */,
+				110D07101FB2070200D846D1 /* TempProfileViewController.swift */,
+				110D07121FB20AEA00D846D1 /* TempProfileViewController+handleImage.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		116369F31FBB43BA004DE2AF /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				112511FE1FBA34260044AA0F /* CalendarCell */,
+				111D0C961FB4B7F200916F72 /* UserCell.swift */,
+				114C8FDA1FB53C450011CD65 /* ChatMessageCell.swift */,
+				116369F41FBB441B004DE2AF /* BlogCell.swift */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		11EA81CC1FB02F77008D67A7 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				11EBE6EF1FACE81000171DC8 /* LoginViewController.swift */,
+				11EBE6F11FAD0B4000171DC8 /* RegisterViewController.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		11EA81CD1FB02FA3008D67A7 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				11EA81BA1FAFC6BA008D67A7 /* NewMessageViewController.swift */,
+				11EBE6BB1FACD7CD00171DC8 /* HomeViewController.swift */,
+				11544B901FB3B3A10082C919 /* ChatLogViewController.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		11EA81CE1FB02FB1008D67A7 /* Blog */ = {
+			isa = PBXGroup;
+			children = (
+				11EA81C61FB026BD008D67A7 /* BlogPostViewController.swift */,
+				11DA147A1FBCB4C800261D35 /* PostViewController.swift */,
+			);
+			path = Blog;
+			sourceTree = "<group>";
+		};
+		11EA81CF1FB02FE0008D67A7 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				11EBE6ED1FACDEE000171DC8 /* UIColor+RGB.swift */,
+				11EA9C4B1FAE4D2F006B6B53 /* UIColor+staicColor.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		11EA81D01FB02FF1008D67A7 /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				11EA81C01FB01FA1008D67A7 /* CustomTabBar.swift */,
+				11EA81C21FB01FB8008D67A7 /* CustomTabBarItem.swift */,
+				11EA81C41FB01FDC008D67A7 /* CustomTabAnimatedTransitioning.swift */,
+			);
+			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
+		11EA81D11FB03004008D67A7 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				11EBE6F31FAD114500171DC8 /* RemoteStore.swift */,
+				11EBE6F51FAD126600171DC8 /* FirebaseStore.swift */,
+				11EBE6F71FAD131D00171DC8 /* FirebaseModel.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		11EBE6AD1FACD7CD00171DC8 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +259,8 @@
 				11EBE6D01FACD7CD00171DC8 /* TresPointTests */,
 				11EBE6DB1FACD7CD00171DC8 /* TresPointUITests */,
 				11EBE6B71FACD7CD00171DC8 /* Products */,
+				429FACB71C3709C7540F7209 /* Pods */,
+				722C378B6CF9FD541FC5D0AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +277,11 @@
 		11EBE6B81FACD7CD00171DC8 /* TresPoint */ = {
 			isa = PBXGroup;
 			children = (
+				11EA9C4D1FAE60AF006B6B53 /* GoogleService-Info.plist */,
 				11EBE6B91FACD7CD00171DC8 /* AppDelegate.swift */,
-				11EBE6BB1FACD7CD00171DC8 /* ViewController.swift */,
-				11EBE6BD1FACD7CD00171DC8 /* Main.storyboard */,
+				11EBE6EC1FACD94C00171DC8 /* Controller */,
+				11EBE6EB1FACD92B00171DC8 /* View */,
+				11EBE6EA1FACD92300171DC8 /* Model */,
 				11EBE6C31FACD7CD00171DC8 /* Assets.xcassets */,
 				11EBE6C51FACD7CD00171DC8 /* LaunchScreen.storyboard */,
 				11EBE6C81FACD7CD00171DC8 /* Info.plist */,
@@ -128,6 +308,65 @@
 			path = TresPointUITests;
 			sourceTree = "<group>";
 		};
+		11EBE6EA1FACD92300171DC8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				11EA81D11FB03004008D67A7 /* Firebase */,
+				11EA81BC1FB00B7C008D67A7 /* User.swift */,
+				111D0C941FB4AF3600916F72 /* Messages.swift */,
+				11C882E91FBB80FC0076A405 /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		11EBE6EB1FACD92B00171DC8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				116369F31FBB43BA004DE2AF /* CustomCells */,
+				112511FB1FBA10390044AA0F /* RoundView */,
+				110D07141FB2661D00D846D1 /* UIImageView */,
+				11EA81D01FB02FF1008D67A7 /* CustomTabBar */,
+				11EA81CF1FB02FE0008D67A7 /* UIColor */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		11EBE6EC1FACD94C00171DC8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				11EA81BE1FB01EAC008D67A7 /* TabBarViewController.swift */,
+				11EA81CD1FB02FA3008D67A7 /* Chat */,
+				11EA81CC1FB02F77008D67A7 /* Log */,
+				11EA81CE1FB02FB1008D67A7 /* Blog */,
+				114ADF2A1FB0F267009BD57E /* Profile */,
+				11EA81C81FB026EB008D67A7 /* CalendarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		429FACB71C3709C7540F7209 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3E03A89B01F71C907735D33 /* Pods-TresPoint.debug.xcconfig */,
+				9D52D7695DECBA452FDFF840 /* Pods-TresPoint.release.xcconfig */,
+				2B898DABB61817D08D5BA64A /* Pods-TresPointTests.debug.xcconfig */,
+				03E022AF7B984869C86D387A /* Pods-TresPointTests.release.xcconfig */,
+				72438A9EF8B77E7020B06700 /* Pods-TresPointUITests.debug.xcconfig */,
+				2B697F4F519E50E398A25831 /* Pods-TresPointUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		722C378B6CF9FD541FC5D0AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE2AEC1AFB6449B6EB11E9C1 /* Pods_TresPoint.framework */,
+				5B8894FA0F153AD5BA31D265 /* Pods_TresPointTests.framework */,
+				C6B6809FF7519420BE8B8D7A /* Pods_TresPointUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +374,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11EBE6E11FACD7CD00171DC8 /* Build configuration list for PBXNativeTarget "TresPoint" */;
 			buildPhases = (
+				679841A95C3DD2A49C360C01 /* [CP] Check Pods Manifest.lock */,
 				11EBE6B21FACD7CD00171DC8 /* Sources */,
 				11EBE6B31FACD7CD00171DC8 /* Frameworks */,
 				11EBE6B41FACD7CD00171DC8 /* Resources */,
+				DBC1D112A4954A3A0D6C85A1 /* [CP] Embed Pods Frameworks */,
+				A9F920AD04A2F3134C2CE7CC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +394,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11EBE6E41FACD7CD00171DC8 /* Build configuration list for PBXNativeTarget "TresPointTests" */;
 			buildPhases = (
+				37B298E66EA84E2D40082DB4 /* [CP] Check Pods Manifest.lock */,
 				11EBE6C91FACD7CD00171DC8 /* Sources */,
 				11EBE6CA1FACD7CD00171DC8 /* Frameworks */,
 				11EBE6CB1FACD7CD00171DC8 /* Resources */,
+				B0685952D56340D8993E9C9C /* [CP] Embed Pods Frameworks */,
+				432C52060DF6A53A757F6376 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +415,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11EBE6E71FACD7CD00171DC8 /* Build configuration list for PBXNativeTarget "TresPointUITests" */;
 			buildPhases = (
+				C11DC0FF38C32AF1D40D10AC /* [CP] Check Pods Manifest.lock */,
 				11EBE6D41FACD7CD00171DC8 /* Sources */,
 				11EBE6D51FACD7CD00171DC8 /* Frameworks */,
 				11EBE6D61FACD7CD00171DC8 /* Resources */,
+				D4D3474B305FC677065BF5C3 /* [CP] Embed Pods Frameworks */,
+				CBAF365C0B61B278928EF8DE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,6 +444,7 @@
 				TargetAttributes = {
 					11EBE6B51FACD7CD00171DC8 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					11EBE6CC1FACD7CD00171DC8 = {
@@ -237,7 +486,7 @@
 			files = (
 				11EBE6C71FACD7CD00171DC8 /* LaunchScreen.storyboard in Resources */,
 				11EBE6C41FACD7CD00171DC8 /* Assets.xcassets in Resources */,
-				11EBE6BF1FACD7CD00171DC8 /* Main.storyboard in Resources */,
+				11EA9C4E1FAE60AF006B6B53 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,14 +506,211 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		37B298E66EA84E2D40082DB4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TresPointTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		432C52060DF6A53A757F6376 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TresPointTests/Pods-TresPointTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		679841A95C3DD2A49C360C01 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TresPoint-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9F920AD04A2F3134C2CE7CC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TresPoint/Pods-TresPoint-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0685952D56340D8993E9C9C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TresPointTests/Pods-TresPointTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C11DC0FF38C32AF1D40D10AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TresPointUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBAF365C0B61B278928EF8DE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TresPointUITests/Pods-TresPointUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4D3474B305FC677065BF5C3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TresPointUITests/Pods-TresPointUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBC1D112A4954A3A0D6C85A1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TresPoint/Pods-TresPoint-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/KJExpandableTableTree/KJExpandableTableTree.framework",
+				"${BUILT_PRODUCTS_DIR}/Pastel/Pastel.framework",
+				"${BUILT_PRODUCTS_DIR}/Sharaku/Sharaku.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KJExpandableTableTree.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pastel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sharaku.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TresPoint/Pods-TresPoint-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		11EBE6B21FACD7CD00171DC8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11EBE6BC1FACD7CD00171DC8 /* ViewController.swift in Sources */,
+				114ADF2C1FB0F27C009BD57E /* ProfileVC.swift in Sources */,
+				11EBE6F81FAD131D00171DC8 /* FirebaseModel.swift in Sources */,
+				11EBE6BC1FACD7CD00171DC8 /* HomeViewController.swift in Sources */,
+				11EA81C11FB01FA1008D67A7 /* CustomTabBar.swift in Sources */,
 				11EBE6BA1FACD7CD00171DC8 /* AppDelegate.swift in Sources */,
 				11EBE6C21FACD7CD00171DC8 /* TresPoint.xcdatamodeld in Sources */,
+				112512001FBA344D0044AA0F /* CalendarCell.swift in Sources */,
+				114C8FDB1FB53C450011CD65 /* ChatMessageCell.swift in Sources */,
+				11C882EA1FBB80FC0076A405 /* Post.swift in Sources */,
+				11EBE6F21FAD0B4000171DC8 /* RegisterViewController.swift in Sources */,
+				111D0C951FB4AF3600916F72 /* Messages.swift in Sources */,
+				110D07111FB2070200D846D1 /* TempProfileViewController.swift in Sources */,
+				110D07131FB20AEA00D846D1 /* TempProfileViewController+handleImage.swift in Sources */,
+				110D07161FB2664300D846D1 /* UIImageView+Cache.swift in Sources */,
+				11EA81C91FB026EB008D67A7 /* CalendarViewController.swift in Sources */,
+				11EA81C71FB026BD008D67A7 /* BlogPostViewController.swift in Sources */,
+				11EA81BB1FAFC6BA008D67A7 /* NewMessageViewController.swift in Sources */,
+				111D0C971FB4B7F200916F72 /* UserCell.swift in Sources */,
+				11EA81CB1FB02BA6008D67A7 /* ProfileViewController.swift in Sources */,
+				11EBE6F61FAD126600171DC8 /* FirebaseStore.swift in Sources */,
+				11544B911FB3B3A10082C919 /* ChatLogViewController.swift in Sources */,
+				11EBE6F01FACE81000171DC8 /* LoginViewController.swift in Sources */,
+				11EA81BD1FB00B7C008D67A7 /* User.swift in Sources */,
+				11EA81C31FB01FB8008D67A7 /* CustomTabBarItem.swift in Sources */,
+				11DA147B1FBCB4C800261D35 /* PostViewController.swift in Sources */,
+				116369F51FBB441B004DE2AF /* BlogCell.swift in Sources */,
+				11EBE6EE1FACDEE000171DC8 /* UIColor+RGB.swift in Sources */,
+				11EA81BF1FB01EAC008D67A7 /* TabBarViewController.swift in Sources */,
+				112511FD1FBA105D0044AA0F /* RoundTextField.swift in Sources */,
+				11EA81C51FB01FDC008D67A7 /* CustomTabAnimatedTransitioning.swift in Sources */,
+				11EA9C4C1FAE4D2F006B6B53 /* UIColor+staicColor.swift in Sources */,
+				11EBE6F41FAD114500171DC8 /* RemoteStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,14 +746,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		11EBE6BD1FACD7CD00171DC8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				11EBE6BE1FACD7CD00171DC8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		11EBE6C51FACD7CD00171DC8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -428,14 +866,18 @@
 		};
 		11EBE6E21FACD7CD00171DC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3E03A89B01F71C907735D33 /* Pods-TresPoint.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4CNF88RDC6;
 				INFOPLIST_FILE = TresPoint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = syz.TresPoint;
+				PRODUCT_BUNDLE_IDENTIFIER = "TresPoint-LLC.TresPoint-LLC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -443,14 +885,17 @@
 		};
 		11EBE6E31FACD7CD00171DC8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D52D7695DECBA452FDFF840 /* Pods-TresPoint.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4CNF88RDC6;
 				INFOPLIST_FILE = TresPoint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = syz.TresPoint;
+				PRODUCT_BUNDLE_IDENTIFIER = "TresPoint-LLC.TresPoint-LLC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -458,6 +903,7 @@
 		};
 		11EBE6E51FACD7CD00171DC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B898DABB61817D08D5BA64A /* Pods-TresPointTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -475,6 +921,7 @@
 		};
 		11EBE6E61FACD7CD00171DC8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03E022AF7B984869C86D387A /* Pods-TresPointTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -492,6 +939,7 @@
 		};
 		11EBE6E81FACD7CD00171DC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72438A9EF8B77E7020B06700 /* Pods-TresPointUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -508,6 +956,7 @@
 		};
 		11EBE6E91FACD7CD00171DC8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B697F4F519E50E398A25831 /* Pods-TresPointUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

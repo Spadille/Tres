@@ -8,8 +8,28 @@
 
 import UIKit
 import Firebase
+import Pastel
 
 class RegisterViewController: UIViewController {
+    
+    let BackgroundView: PastelView = {
+        let pastelView = PastelView()
+        pastelView.startPastelPoint = .bottomLeft
+        pastelView.endPastelPoint = .topRight
+        pastelView.animationDuration = 3.0
+        
+        pastelView.setColors([UIColor(red: 156/255, green: 39/255, blue: 176/255, alpha: 1.0),
+                              UIColor(red: 255/255, green: 64/255, blue: 129/255, alpha: 1.0),
+                              UIColor(red: 123/255, green: 31/255, blue: 162/255, alpha: 1.0),
+                              UIColor(red: 32/255, green: 76/255, blue: 255/255, alpha: 1.0),
+                              UIColor(red: 32/255, green: 158/255, blue: 255/255, alpha: 1.0),
+                              UIColor(red: 90/255, green: 120/255, blue: 127/255, alpha: 1.0),
+                              UIColor(red: 58/255, green: 255/255, blue: 217/255, alpha: 1.0)])
+        
+        pastelView.startAnimation()
+        
+        return pastelView
+    }()
     
     let inputsContainerView: UIView = {
         let input = UIView()
@@ -22,13 +42,12 @@ class RegisterViewController: UIViewController {
     
     let registerButton: UIButton = {
         let register = UIButton()
-        register.backgroundColor = UIColor(rgb: 0x7EBCDC)
+        register.backgroundColor = UIColor(rgb: 0x7EBCDC).withAlphaComponent(0.36)
         register.setTitle("Register", for: .normal)
         register.translatesAutoresizingMaskIntoConstraints = false
         register.setTitleColor(UIColor.white, for: .normal)
         register.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         register.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
-        
         return register
     }()
     
@@ -59,6 +78,7 @@ class RegisterViewController: UIViewController {
         imageView.image = UIImage(named: "TresPointLogin")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
+        imageView.alpha = 0.64
         return imageView
     }()
     
@@ -89,14 +109,32 @@ class RegisterViewController: UIViewController {
         nametext.translatesAutoresizingMaskIntoConstraints = false
         return nametext
     }()
+    
+    func handleTap(){
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
+        tapRecognizer.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapRecognizer)
+    }
+    
+    @objc func handleSingleTap(recognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(rgb: 0xE5E6E7)
+        //view.backgroundColor = UIColor(rgb: 0xE5E6E7)
+        setupBackground()
         setupInputContainer()
         setupLoginButton()
         setupImageProfile()
+        handleTap()
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func setupBackground(){
+        BackgroundView.frame = view.bounds
+        view.insertSubview(BackgroundView, at: 0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -127,7 +165,8 @@ class RegisterViewController: UIViewController {
                     print(error.localizedDescription)
                     appDelegate.infoView(message: "error sign in", color: infoColor.colorSmoothRed)
                 }
-                UserDefaults.standard.set(email, forKey: "username")
+                //UserDefaults.standard.set(email, forKey: "username")
+                UserDefaults.standard.set(newUser, forKey: "user")
             })
             self.dismiss(animated: true, completion: nil)
         }

@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+class User:NSObject {
+    var email: String?
+    var name: String?
+    var phonenumber:String?
+    var profileImage:String?
+    var id:String?
+    
+    init(dict:[String:AnyObject]) {
+        super.init()
+        self.profileImage = dict["imageURL"] as? String
+        self.email = dict["email"] as? String
+        self.name = dict["name"] as? String
+        self.phonenumber = dict["phonenumber"] as? String
+    }
+    
+    override init(){
+    }
+}

@@ -8,8 +8,28 @@
 
 import UIKit
 import Firebase
+import Pastel
 
 class LoginViewController: UIViewController {
+    
+    let BackgroundView: PastelView = {
+        let pastelView = PastelView()
+        pastelView.startPastelPoint = .bottomLeft
+        pastelView.endPastelPoint = .topRight
+        pastelView.animationDuration = 3.0
+        
+        pastelView.setColors([UIColor(red: 156/255, green: 39/255, blue: 176/255, alpha: 1.0),
+                              UIColor(red: 255/255, green: 64/255, blue: 129/255, alpha: 1.0),
+                              UIColor(red: 123/255, green: 31/255, blue: 162/255, alpha: 1.0),
+                              UIColor(red: 32/255, green: 76/255, blue: 255/255, alpha: 1.0),
+                              UIColor(red: 32/255, green: 158/255, blue: 255/255, alpha: 1.0),
+                              UIColor(red: 90/255, green: 120/255, blue: 127/255, alpha: 1.0),
+                              UIColor(red: 58/255, green: 255/255, blue: 217/255, alpha: 1.0)])
+        
+        pastelView.startAnimation()
+        
+        return pastelView
+    }()
     
     let inputsContainerView: UIView = {
         let input = UIView()
@@ -22,7 +42,7 @@ class LoginViewController: UIViewController {
 
     let loginButton: UIButton = {
         let login = UIButton()
-        login.backgroundColor = UIColor(rgb: 0x7EBCDC)
+        login.backgroundColor = UIColor(rgb: 0x7EBCDC).withAlphaComponent(0.36)
         login.setTitle("Login", for: .normal)
         login.translatesAutoresizingMaskIntoConstraints = false
         login.setTitleColor(UIColor.white, for: .normal)
@@ -56,6 +76,7 @@ class LoginViewController: UIViewController {
     let imageProfile: UIImageView = {
        let imageView = UIImageView()
         imageView.image = UIImage(named: "TresPointLogin")
+        imageView.alpha = 0.64
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -73,17 +94,40 @@ class LoginViewController: UIViewController {
                 print(error.localizedDescription)
                 return
             }
-            UserDefaults.standard.set(email, forKey: "username")
+            let uid = Auth.auth().currentUser?.uid
+            Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+                //print(snapshot)
+                if let dict = snapshot.value as? [String:AnyObject] {
+                    UserDefaults.standard.set(dict, forKey: "user")
+                }
+            })
             self.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    func handleTap(){
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
+        tapRecognizer.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapRecognizer)
+    }
+    
+    @objc func handleSingleTap(recognizer: UITapGestureRecognizer){
+        view.endEditing(true)
     }
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(rgb: 0xE5E6E7)
+        //view.backgroundColor = UIColor(rgb: 0xE5E6E7)
+        setupBackground()
         setupInputContainer()
         setupLoginButton()
         setupImageProfile()
+        handleTap()
+    }
+    
+    func setupBackground(){
+        BackgroundView.frame = view.bounds
+        view.insertSubview(BackgroundView, at: 0)
     }
     
     func setupInputContainer() {
