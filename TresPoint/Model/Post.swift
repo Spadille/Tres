@@ -18,6 +18,8 @@ class Post: NSObject{
     var numComments: String?
     var comments:[String]?
     var timeStamp: String?
+    var id: String?
+    var isLiked: String?
     
     init(dict:[String:String]) {
         super.init()
@@ -28,6 +30,8 @@ class Post: NSObject{
         self.numComments = dict["numComments"]
         self.timeStamp = dict["timestamp"]
         self.profileImage = dict["profileImage"]
+        self.id = dict["id"]
+        self.isLiked = dict["isLiked"]
     }
     
     override init(){

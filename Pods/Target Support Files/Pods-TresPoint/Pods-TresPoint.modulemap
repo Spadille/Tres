@@ -1,0 +1,6 @@
+framework module Pods_TresPoint {
+  umbrella header "Pods-TresPoint-umbrella.h"
+
+  export *
+  module * { export * }
+}

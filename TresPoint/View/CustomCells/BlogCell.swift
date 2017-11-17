@@ -71,7 +71,16 @@ class BlogCell: UICollectionViewCell {
     
     let likeCommentsLabel: UILabel = {
         let label = UILabel()
-        label.text = "400Likes   100 Comments"
+        label.text = "400Likes"
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor(red: 155, green: 161, blue: 171)
+        return label
+    }()
+    
+    let CommentsLabel: UILabel = {
+        let label = UILabel()
+        label.text = "100 Comments"
         label.font = UIFont.systemFont(ofSize: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(red: 155, green: 161, blue: 171)
@@ -142,7 +151,7 @@ class BlogCell: UICollectionViewCell {
         addConstraintsWithFormat(format: "V:[v0(44)]|", views: commentButton)
         addConstraintsWithFormat(format: "V:[v0(44)]|", views: shareButton)
         addConstraintsWithFormat(format: "H:|[v0]|", views: statusImage)
-        addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1]-4-[v2(200)]-8-[v3(24)]-4-[v4(0.4)]-4-[v5(44)]|", views: profileImageView,statusTextView,statusImage,likeCommentsLabel,dividerLineView,likeButton)
+        addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1]-4-[v2(200)]-8-[v3(v4)][v4(24)]-4-[v5(0.4)]-4-[v6(44)]|", views: profileImageView,statusTextView,statusImage,likeCommentsLabel, CommentsLabel,dividerLineView,likeButton)
     }
     
 
@@ -158,9 +167,40 @@ class BlogCell: UICollectionViewCell {
         return button
     }
     
+    static func buttonForTitles(title:String, imageName: String,firstSelector:(_ button:UIButton)->()) ->UIButton {
+        let button = UIButton()
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(UIColor(red: 143, green: 150, blue: 163), for: .normal)
+        let image = UIImage(named:imageName)
+        button.setImage(image, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 10)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+//        button.isUserInteractionEnabled = true
+//        button.isEnabled = true
+        firstSelector(button)
+        return button
+    }
+    
+//    lazy var likeButton = BlogCell.buttonForTitles(title: "Like", imageName: "add_pressed") { (bu) in
+//        bu.addTarget(self, action: #selector(addLike), for: .touchUpInside)
+//    }
+    
     let likeButton = BlogCell.buttonForTitle(title:"Like",imageName:"add_pressed")
     let commentButton = BlogCell.buttonForTitle(title: "Comment", imageName: "add_pressed")
+    
+//    lazy var commentButton = BlogCell.buttonForTitles(title: "Comment", imageName: "add_pressed"){ (bu) in
+//        bu.addTarget(self, action: #selector(addComment), for: .touchUpInside)
+//    }
+    
     let shareButton = BlogCell.buttonForTitle(title: "Share", imageName: "add_pressed")
+    
+    
+    override func layoutIfNeeded() {
+        super.layoutSubviews()
+        self.layoutIfNeeded()
+    }
+    
+    
     
     func setupView(){
         backgroundColor = UIColor.white
@@ -172,6 +212,7 @@ class BlogCell: UICollectionViewCell {
         addSubview(likeButton)
         addSubview(commentButton)
         addSubview(shareButton)
+        addSubview(CommentsLabel)
         
 //        if statusImage.image != nil  {
 //            //statusImage.loadImageUsingCacheWithUrlString(urlString: imageurl)
@@ -190,12 +231,12 @@ class BlogCell: UICollectionViewCell {
         statusImage.frame = CGRect.zero
         statusImage.heightAnchor.constraint(equalToConstant: 0)
         //willRemoveSubview(cell.statusImage)
-        let constraint_add = NSLayoutConstraint.constraints(withVisualFormat: "V:|-8-[v0(44)]-4-[v1]-4-[v2(24)]-4-[v3(0.4)]-4-[v4(44)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileImageView,"v1":statusTextView, "v2":likeCommentsLabel, "v3":dividerLineView, "v4":likeButton])
-        addConstraints(constraint_add)
-        
+//        let constraint_add = NSLayoutConstraint.constraints(withVisualFormat: "V:|-8-[v0(44)]-4-[v1]-4-[v2(24)]-4-[v3(0.4)]-4-[v4(44)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileImageView,"v1":statusTextView, "v2":likeCommentsLabel, "v3":dividerLineView, "v4":likeButton])
+//        addConstraints(constraint_add)
+        addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1]-4-[v2(v3)][v3(24)]-4-[v4(0.4)]-4-[v5(44)]|", views: profileImageView,statusTextView, likeCommentsLabel,CommentsLabel, dividerLineView, likeButton)
         addConstraintsWithFormat(format: "H:|-8-[v0(44)]-8-[v1]|", views: profileImageView,nameLabel)
         addConstraintsWithFormat(format: "H:|-4-[v0]-4-|", views: statusTextView)
-        addConstraintsWithFormat(format: "H:|-12-[v0]|", views: likeCommentsLabel)
+        addConstraintsWithFormat(format: "H:|-12-[v0]-6-[v1]|", views: likeCommentsLabel,CommentsLabel)
         addConstraintsWithFormat(format: "H:|-12-[v0]-12-|", views: dividerLineView)
         addConstraintsWithFormat(format: "H:|[v0(v1)][v1(v2)][v2]|", views: likeButton,commentButton,shareButton)
         addConstraintsWithFormat(format: "V:|-12-[v0]", views: nameLabel)
@@ -217,3 +258,18 @@ extension UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
     }
 }
+
+//class subclassUIButton:UIButton {
+//    var isClicked: Bool?
+//    var id: String?
+//
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//
+//}
+

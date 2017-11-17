@@ -212,9 +212,11 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
         post.timeStamp = String(Date().timeIntervalSince1970)
         post.numComments = "0"
         post.numLikes = "0"
+        post.id = dataRef.key
+        post.isLiked = "false"
         let value: [String:Any]=[
             "name":post.name! ,"profileImage":post.profileImage ?? "" , "statusText":post.statusText!,"statusImage":post.statusImageView!,
-            "numComments":"\(post.numComments!)"  ,"numLikes":"\(post.numLikes!)" ,"timestamp":post.timeStamp!]
+            "numComments":"\(post.numComments!)"  ,"numLikes":"\(post.numLikes!)" ,"timestamp":post.timeStamp!,"id":post.id!,"isLiked":post.isLiked!]
         dataRef.updateChildValues(value) { (error, datarefer) in
             let key = dataRef.key
             if let error = error {

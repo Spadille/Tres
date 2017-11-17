@@ -33,6 +33,19 @@ class BlogPostViewController: UIViewController, UICollectionViewDelegateFlowLayo
         // Dispose of any resources that can be recreated.
     }
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh),for: .valueChanged)
+        refreshControl.tintColor = infoColor.colorSmoothRed
+        return refreshControl
+    }()
+    
+    @objc func handleRefresh(){
+        observeDataFromFirebase()
+        //self.tabView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
     let cellId = "BlogCell"
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -85,6 +98,7 @@ class BlogPostViewController: UIViewController, UICollectionViewDelegateFlowLayo
         tabView.delegate = self
         tabView.dataSource = self
         tabView.showsVerticalScrollIndicator = false
+        tabView.addSubview(refreshControl)
         let constraints:[NSLayoutConstraint] = [
             tabView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tabView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -50),
@@ -109,13 +123,42 @@ extension BlogPostViewController: UICollectionViewDataSource{
         let cell = tabView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BlogCell
         let post = posts[indexPath.row]
         cell.post = post
+//        if let bt = cell.likeButton as? subclassUIButton {
+//            bt.id =
+//        }
+//        cell.likeButton.addTarget(self, action: #selector(addLike), for: .touchUpInside)
+//        cell.commentButton.addTarget(self, action: #selector(addComment), for: .touchUpInside)
         return cell
     }
+    
+//    @objc func addLike(_ sender: subclassUIButton){
+//        if let id = sender.id{
+//            let dataref = Database.database().reference().child("Posts").child(id)
+//            dataref.observeSingleEvent(of: .value, with: { (snapshot) in
+//                if let dict = snapshot.value as? [String:String] {
+//                    var likeCount = Int(dict["numLikes"]!)!
+//                    likeCount += 1
+//                    let properties:[String:String] = ["numLikes":"\(likeCount)"]
+//                    dataref.updateChildValues(properties, withCompletionBlock: { (error, dataref) in
+//                        if error != nil {
+//                            print(error.debugDescription)
+//                        }
+//                    })
+//                }
+//            })
+//        }
+//    }
+
+    @objc func addComment(){
+       // print(456)
+    }
+    
+
     
     private func setNameTimeAndLocation(cell:BlogCell,name:String,seconds:Double){
         cell.nameLabel.numberOfLines = 2
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh:mm:ss a"
+        dateFormatter.dateFormat = "MMM d, h:mm a"
         let time = Date(timeIntervalSince1970: seconds)
         let timestamp = dateFormatter.string(from: time)
         //cell.nameLabel.attributedText = NSAttributedString(string: timestamp)
@@ -147,9 +190,10 @@ extension BlogPostViewController: UICollectionViewDataSource{
     }
     
     private func observeDataFromFirebase(){
-        let dataRef = Database.database().reference().child("Posts").queryLimited(toFirst: 25)
+        posts.removeAll()
+        let dataRef = Database.database().reference().child("Posts").queryLimited(toFirst: 20)
         dataRef.observeSingleEvent(of: .value) { (snapshot) in
-            if let val = snapshot.value as? [String:[String:String]] {
+            if let val = snapshot.value as? [String:[String:String]]{
                 for value in val.values {
                     //print(value)
                     let post = Post(dict: value)
@@ -158,6 +202,11 @@ extension BlogPostViewController: UICollectionViewDataSource{
                     }
                     //print(post.statusImageView)
                     self.posts.append(post)
+                    self.posts.sort(by: { (post1, post2) -> Bool in
+                        let p1 = post1.timeStamp
+                        let p2 = post2.timeStamp
+                        return Double(p1!)! > Double(p2!)!
+                    })
                     DispatchQueue.main.async {
                         self.tabView.reloadData()
                     }
@@ -165,4 +214,5 @@ extension BlogPostViewController: UICollectionViewDataSource{
             }
         }
     }
+    
 }
