@@ -11,6 +11,9 @@ import UIKit
 class BlogCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.layer.borderColor = UIColor.white.cgColor
+        self.layer.cornerRadius = 16
+        self.layer.masksToBounds = true
         setupView()
     }
     
@@ -18,12 +21,17 @@ class BlogCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var post:Post? {
+        didSet{
+            setPostImage()
+        }
+    }
+    
     let nameLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         //label.text = "Sample Name"
         label.numberOfLines = 2
         let attributedText = NSMutableAttributedString(string: "SampleName", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14)])
-        
         attributedText.append(NSAttributedString(string: "\nNovmber 18 • New Jersey ", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12),NSAttributedStringKey.foregroundColor: UIColor(red: 155/255, green: 161/255, blue: 171/255, alpha: 1)]))
         
         let paragraphStyle = NSMutableParagraphStyle()
@@ -39,7 +47,8 @@ class BlogCell: UICollectionViewCell {
     let profileImageView:UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = UIColor.red
+        imageView.backgroundColor = UIColor.clear
+        imageView.image = UIImage(named:"contact")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -54,7 +63,7 @@ class BlogCell: UICollectionViewCell {
     
     let statusImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named:"messi")
+        //imageView.image = UIImage(named:"tempurl")
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         return imageView
@@ -76,6 +85,65 @@ class BlogCell: UICollectionViewCell {
         return view
     }()
     
+    func setPostImage(){
+        if let name = post?.name, let status = post?.statusText, let ts = post?.timeStamp {
+            //cell.nameLabel.text = name
+            statusTextView.text = status
+            if let seconds = Double(ts) {
+                //print(seconds)
+                setNameTimeAndLocation(name: name, seconds: seconds)
+            }
+        }else {
+            statusTextView.text = "???"
+        }
+        
+        if let commentsCount = post?.numComments, let likeCount = post?.numLikes {
+            likeCommentsLabel.text = "\(commentsCount) Likes   \(likeCount) Comments"
+        }
+        
+        //print(post.statusText)
+        if let profileImageName = post?.profileImage {
+            profileImageView.loadImageUsingCacheWithUrlString(urlString: profileImageName)
+        }
+        
+        if let imageurl = post?.statusImageView {
+            resetBlogCell(imageurl: imageurl)
+        }
+    }
+    
+    private func setNameTimeAndLocation(name:String,seconds:Double){
+        nameLabel.numberOfLines = 2
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm:ss a"
+        let time = Date(timeIntervalSince1970: seconds)
+        let timestamp = "    \(dateFormatter.string(from: time))"
+        //nameLabel.attributedText = NSAttributedString(string: timestamp)
+        let attributedText = NSMutableAttributedString(string: name, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14)])
+        
+        attributedText.append(NSAttributedString(string: timestamp, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12),NSAttributedStringKey.foregroundColor: UIColor(red: 155/255, green: 161/255, blue: 171/255, alpha: 1)]))
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 4
+        attributedText.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.string.count))
+        nameLabel.attributedText = attributedText
+        nameLabel.font = UIFont.boldSystemFont(ofSize: 14)
+    }
+    
+    private func resetBlogCell(imageurl: String){
+        statusImage.loadImageUsingCacheWithUrlString(urlString: imageurl)
+        addSubview(statusImage)
+        removeConstraints(constraints)
+        addConstraintsWithFormat(format: "H:|-8-[v0(44)]-8-[v1]|", views: profileImageView,nameLabel)
+        addConstraintsWithFormat(format: "H:|-4-[v0]-4-|", views: statusTextView)
+        addConstraintsWithFormat(format: "H:|-12-[v0]|", views: likeCommentsLabel)
+        addConstraintsWithFormat(format: "H:|-12-[v0]-12-|", views: dividerLineView)
+        addConstraintsWithFormat(format: "H:|[v0(v1)][v1(v2)][v2]|", views: likeButton,commentButton,shareButton)
+        addConstraintsWithFormat(format: "V:|-12-[v0]", views: nameLabel)
+        addConstraintsWithFormat(format: "V:[v0(44)]|", views: commentButton)
+        addConstraintsWithFormat(format: "V:[v0(44)]|", views: shareButton)
+        addConstraintsWithFormat(format: "H:|[v0]|", views: statusImage)
+        addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1]-4-[v2(200)]-8-[v3(24)]-4-[v4(0.4)]-4-[v5(44)]|", views: profileImageView,statusTextView,statusImage,likeCommentsLabel,dividerLineView,likeButton)
+    }
     
 
     
@@ -99,21 +167,39 @@ class BlogCell: UICollectionViewCell {
         addSubview(nameLabel)
         addSubview(profileImageView)
         addSubview(statusTextView)
-        addSubview(statusImage)
         addSubview(likeCommentsLabel)
         addSubview(dividerLineView)
         addSubview(likeButton)
         addSubview(commentButton)
         addSubview(shareButton)
         
+//        if statusImage.image != nil  {
+//            //statusImage.loadImageUsingCacheWithUrlString(urlString: imageurl)
+//            addSubview(statusImage)
+//            let constraint_add = NSLayoutConstraint.constraints(withVisualFormat: "V:|-8-[v0(44)]-4-[v1]-4-[v2(200)]-8-[v3(24)]-4-[v4(1)]-4-[v5(44)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileImageView,"v1":statusTextView,"v2":statusImage, "v3":likeCommentsLabel, "v4":dividerLineView, "v5":likeButton])
+//            addConstraints(constraint_add)
+//            addConstraintsWithFormat(format: "H:|[v0]|", views: statusImage)
+//        }else {
+//            statusImage.frame = CGRect.zero
+//            statusImage.heightAnchor.constraint(equalToConstant: 0)
+//            //willRemoveSubview(cell.statusImage)
+//            let constraint_add = NSLayoutConstraint.constraints(withVisualFormat: "V:|-8-[v0(44)]-4-[v1]-4-[v2(24)]-4-[v3(0.4)]-4-[v4(44)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileImageView,"v1":statusTextView, "v2":likeCommentsLabel, "v3":dividerLineView, "v4":likeButton])
+//            addConstraints(constraint_add)
+//        }
+//
+        statusImage.frame = CGRect.zero
+        statusImage.heightAnchor.constraint(equalToConstant: 0)
+        //willRemoveSubview(cell.statusImage)
+        let constraint_add = NSLayoutConstraint.constraints(withVisualFormat: "V:|-8-[v0(44)]-4-[v1]-4-[v2(24)]-4-[v3(0.4)]-4-[v4(44)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileImageView,"v1":statusTextView, "v2":likeCommentsLabel, "v3":dividerLineView, "v4":likeButton])
+        addConstraints(constraint_add)
+        
         addConstraintsWithFormat(format: "H:|-8-[v0(44)]-8-[v1]|", views: profileImageView,nameLabel)
         addConstraintsWithFormat(format: "H:|-4-[v0]-4-|", views: statusTextView)
-        addConstraintsWithFormat(format: "H:|[v0]|", views: statusImage)
         addConstraintsWithFormat(format: "H:|-12-[v0]|", views: likeCommentsLabel)
         addConstraintsWithFormat(format: "H:|-12-[v0]-12-|", views: dividerLineView)
         addConstraintsWithFormat(format: "H:|[v0(v1)][v1(v2)][v2]|", views: likeButton,commentButton,shareButton)
         addConstraintsWithFormat(format: "V:|-12-[v0]", views: nameLabel)
-        addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1]-4-[v2(200)]-8-[v3(24)]-4-[v4(0.4)]-4-[v5(44)]|", views: profileImageView,statusTextView,statusImage,likeCommentsLabel,dividerLineView,likeButton)
+//        addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1]-4-[v2(200)]-8-[v3(24)]-4-[v4(0.4)]-4-[v5(44)]|", views: profileImageView,statusTextView,statusImage,likeCommentsLabel,dividerLineView,likeButton)
         addConstraintsWithFormat(format: "V:[v0(44)]|", views: commentButton)
         addConstraintsWithFormat(format: "V:[v0(44)]|", views: shareButton)
     }

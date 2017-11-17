@@ -49,8 +49,8 @@ class CalendarCell: JTAppleCell{
             dateLabel.widthAnchor.constraint(equalToConstant: 40),
             selectedView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             selectedView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            selectedView.heightAnchor.constraint(equalToConstant: 40),
-            selectedView.widthAnchor.constraint(equalToConstant: 40),
+            selectedView.heightAnchor.constraint(equalToConstant: 32),
+            selectedView.widthAnchor.constraint(equalToConstant: 32),
         ]
         NSLayoutConstraint.activate(constraints)
     }

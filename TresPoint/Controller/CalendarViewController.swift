@@ -216,7 +216,7 @@ class CalendarViewController: UIViewController {
             week.leadingAnchor.constraint(equalTo: calendarContainer.leadingAnchor),
             week.topAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: 4),
             week.trailingAnchor.constraint(equalTo: calendarContainer.trailingAnchor),
-            week.heightAnchor.constraint(equalToConstant: 32)
+            week.heightAnchor.constraint(equalToConstant: 24)
         ]
         NSLayoutConstraint.activate(constraints1)
         
@@ -224,7 +224,7 @@ class CalendarViewController: UIViewController {
             calendarView.leadingAnchor.constraint(equalTo: calendarContainer.leadingAnchor),
             calendarView.trailingAnchor.constraint(equalTo: calendarContainer.trailingAnchor),
             calendarView.topAnchor.constraint(equalTo: week.bottomAnchor,constant:4),
-            calendarView.bottomAnchor.constraint(equalTo: calendarContainer.bottomAnchor),
+            calendarView.bottomAnchor.constraint(equalTo: calendarContainer.bottomAnchor, constant: -50),
             yearLabel.leadingAnchor.constraint(equalTo: calendarContainer.leadingAnchor),
             yearLabel.topAnchor.constraint(equalTo: calendarContainer.topAnchor),
             yearLabel.widthAnchor.constraint(equalToConstant: 60),

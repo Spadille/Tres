@@ -210,8 +210,8 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
         post.statusText = textTxt.text
         post.statusImageView = "tempurl"
         post.timeStamp = String(Date().timeIntervalSince1970)
-        post.numComments = 0
-        post.numLikes = 0
+        post.numComments = "0"
+        post.numLikes = "0"
         let value: [String:Any]=[
             "name":post.name! ,"profileImage":post.profileImage ?? "" , "statusText":post.statusText!,"statusImage":post.statusImageView!,
             "numComments":"\(post.numComments!)"  ,"numLikes":"\(post.numLikes!)" ,"timestamp":post.timeStamp!]
@@ -253,34 +253,26 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        
         // numb of characters in textView
         let chars = textView.text.count
-        
         // white spacing in text
         let spacing = CharacterSet.whitespacesAndNewlines
-        
         // calculate string's length and convert to String
         countLbl.text = String(140 - chars)
-        
         // if number of chars more than 140
         if chars > 140 {
             countLbl.textColor = UIColor.red
             postBtn.isEnabled = false
             postBtn.alpha = 0.4
-            
             // if entered only spaces and new lines
         } else if textView.text.trimmingCharacters(in: spacing).isEmpty {
             postBtn.isEnabled = false
             postBtn.alpha = 0.4
-            
             // everything is correct
         } else {
             countLbl.textColor = UIColor.black
             postBtn.isEnabled = true
             postBtn.alpha = 1
         }
-        
     }
-    
 }

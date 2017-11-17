@@ -9,13 +9,28 @@
 import Foundation
 
 
-class Post{
+class Post: NSObject{
     var name:String?
     var statusText: String?
     var profileImage: String?
     var statusImageView: String?
-    var numLikes: Int?
-    var numComments: Int?
+    var numLikes: String?
+    var numComments: String?
     var comments:[String]?
     var timeStamp: String?
+    
+    init(dict:[String:String]) {
+        super.init()
+        self.name = dict["name"]
+        self.statusText = dict["statusText"]
+        self.statusImageView = dict["statusImage"]
+        self.numLikes = dict["numLikes"]
+        self.numComments = dict["numComments"]
+        self.timeStamp = dict["timestamp"]
+        self.profileImage = dict["profileImage"]
+    }
+    
+    override init(){
+        super.init()
+    }
 }

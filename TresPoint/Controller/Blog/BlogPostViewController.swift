@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class BlogPostViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
@@ -19,15 +20,7 @@ class BlogPostViewController: UIViewController, UICollectionViewDelegateFlowLayo
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named:"add_pressed"), style: .plain, target: self, action: #selector(goToPost))
         setupIcon()
         setupTabView()
-    
-        let post1 = Post()
-        post1.name = "test 1"
-        post1.statusText = "this is a test message for test 1, we can only input what we want to conclude the result that we are here again"
-        let post2 = Post()
-        post2.name = "test 2"
-        post2.statusText = "try the test with another length. this is a test message for test 1, we can only input what we want to conclude the result that we are here againnnnnnn"
-        posts.append(post1)
-        posts.append(post2)
+        observeDataFromFirebase()
     }
     
     @objc func goToPost(){
@@ -45,7 +38,11 @@ class BlogPostViewController: UIViewController, UICollectionViewDelegateFlowLayo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if let statusText = posts[indexPath.item].statusText {
             let rect = NSString(string: statusText).boundingRect(with: CGSize(width: tabView.frame.width, height: 1000), options: NSStringDrawingOptions.usesFontLeading.union(NSStringDrawingOptions.usesLineFragmentOrigin), attributes: [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 14)], context: nil)
-            let knownheight:CGFloat = 8+44+4+4+200+8+24+8+44+32
+            let image = posts[indexPath.item].statusImageView
+            var knownheight:CGFloat = 8+44+4+4+200+8+24+8+44+32
+            if image == nil {
+                knownheight -= 200
+            }
             return CGSize(width: tabView.frame.width, height: rect.height + knownheight)
         }
         return CGSize(width: tabView.frame.width, height: 500)
@@ -63,10 +60,10 @@ class BlogPostViewController: UIViewController, UICollectionViewDelegateFlowLayo
         let tab = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
         tab.translatesAutoresizingMaskIntoConstraints = false
         tab.backgroundColor = UIColor(rgb: 0xE5E6E7)
-        tab.layer.borderColor = UIColor.white.cgColor
-        tab.layer.borderWidth = 1
-        tab.layer.cornerRadius = 16
-        tab.layer.masksToBounds = true
+        //tab.layer.borderColor = UIColor.white.cgColor
+        //tab.layer.borderWidth = 1
+        //tab.layer.cornerRadius = 16
+        //tab.layer.masksToBounds = true
         return tab
     }()
     
@@ -75,8 +72,8 @@ class BlogPostViewController: UIViewController, UICollectionViewDelegateFlowLayo
         let constraints: [NSLayoutConstraint] = [
             icon.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             icon.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 10),
-            icon.widthAnchor.constraint(equalToConstant: 120),
-            icon.heightAnchor.constraint(equalToConstant: 120)
+            icon.widthAnchor.constraint(equalToConstant: 100),
+            icon.heightAnchor.constraint(equalToConstant: 100)
         ]
         NSLayoutConstraint.activate(constraints)
     }
@@ -87,10 +84,12 @@ class BlogPostViewController: UIViewController, UICollectionViewDelegateFlowLayo
         tabView.register(BlogCell.self, forCellWithReuseIdentifier: cellId)
         tabView.delegate = self
         tabView.dataSource = self
+        tabView.showsVerticalScrollIndicator = false
         let constraints:[NSLayoutConstraint] = [
             tabView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            tabView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -10),
-            tabView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
+            tabView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -50),
+            tabView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.95),
+            //tabView.widthAnchor.constraint(equalTo: view.widthAnchor),
             tabView.topAnchor.constraint(equalTo: icon.bottomAnchor, constant: 20)
         ]
         NSLayoutConstraint.activate(constraints)
@@ -109,13 +108,61 @@ extension BlogPostViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = tabView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BlogCell
         let post = posts[indexPath.row]
-        if let name = post.name, let status = post.statusText {
-            cell.nameLabel.text = name
-            cell.statusTextView.text = status
-        }
-        if let profileImageName = post.profileImage {
-            cell.profileImageView.image = UIImage(named: profileImageName)
-        }
+        cell.post = post
         return cell
+    }
+    
+    private func setNameTimeAndLocation(cell:BlogCell,name:String,seconds:Double){
+        cell.nameLabel.numberOfLines = 2
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm:ss a"
+        let time = Date(timeIntervalSince1970: seconds)
+        let timestamp = dateFormatter.string(from: time)
+        //cell.nameLabel.attributedText = NSAttributedString(string: timestamp)
+        let attributedText = NSMutableAttributedString(string: name, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14)])
+        
+        attributedText.append(NSAttributedString(string: timestamp, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12),NSAttributedStringKey.foregroundColor: UIColor(red: 155/255, green: 161/255, blue: 171/255, alpha: 1)]))
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 4
+        attributedText.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.string.count))
+        cell.nameLabel.attributedText = attributedText
+        cell.nameLabel.font = UIFont.boldSystemFont(ofSize: 14)
+    }
+    
+    private func resetBlogCell(cell:BlogCell, imageurl: String){
+        cell.statusImage.loadImageUsingCacheWithUrlString(urlString: imageurl)
+        cell.addSubview(cell.statusImage)
+        cell.removeConstraints(cell.constraints)
+        cell.addConstraintsWithFormat(format: "H:|-8-[v0(44)]-8-[v1]|", views: cell.profileImageView,cell.nameLabel)
+        cell.addConstraintsWithFormat(format: "H:|-4-[v0]-4-|", views: cell.statusTextView)
+        cell.addConstraintsWithFormat(format: "H:|-12-[v0]|", views: cell.likeCommentsLabel)
+        cell.addConstraintsWithFormat(format: "H:|-12-[v0]-12-|", views: cell.dividerLineView)
+        cell.addConstraintsWithFormat(format: "H:|[v0(v1)][v1(v2)][v2]|", views: cell.likeButton,cell.commentButton,cell.shareButton)
+        cell.addConstraintsWithFormat(format: "V:|-12-[v0]", views: cell.nameLabel)
+        cell.addConstraintsWithFormat(format: "V:[v0(44)]|", views: cell.commentButton)
+        cell.addConstraintsWithFormat(format: "V:[v0(44)]|", views: cell.shareButton)
+        cell.addConstraintsWithFormat(format: "H:|[v0]|", views: cell.statusImage)
+        cell.addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1]-4-[v2(200)]-8-[v3(24)]-4-[v4(0.4)]-4-[v5(44)]|", views: cell.profileImageView,cell.statusTextView,cell.statusImage,cell.likeCommentsLabel,cell.dividerLineView,cell.likeButton)
+    }
+    
+    private func observeDataFromFirebase(){
+        let dataRef = Database.database().reference().child("Posts").queryLimited(toFirst: 25)
+        dataRef.observeSingleEvent(of: .value) { (snapshot) in
+            if let val = snapshot.value as? [String:[String:String]] {
+                for value in val.values {
+                    //print(value)
+                    let post = Post(dict: value)
+                    if post.statusImageView == "tempurl" {
+                        post.statusImageView = nil
+                    }
+                    //print(post.statusImageView)
+                    self.posts.append(post)
+                    DispatchQueue.main.async {
+                        self.tabView.reloadData()
+                    }
+                }
+            }
+        }
     }
 }
