@@ -41,6 +41,8 @@ class BlogPostViewController: UIViewController, UICollectionViewDelegateFlowLayo
     }()
     
     @objc func handleRefresh(){
+        posts.removeAll()
+        tabView.reloadData()
         observeDataFromFirebase()
         //self.tabView.reloadData()
         refreshControl.endRefreshing()

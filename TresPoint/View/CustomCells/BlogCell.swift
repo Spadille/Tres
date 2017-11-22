@@ -37,7 +37,6 @@ class BlogCell: UICollectionViewCell {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 4
         attributedText.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.string.count))
-        
         label.attributedText = attributedText
         label.font = UIFont.boldSystemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -106,8 +105,9 @@ class BlogCell: UICollectionViewCell {
             statusTextView.text = "???"
         }
         
-        if let commentsCount = post?.numComments, let likeCount = post?.numLikes {
-            likeCommentsLabel.text = "\(commentsCount) Likes   \(likeCount) Comments"
+        if let commentsCountNum = post?.numComments, let likeCount = post?.numLikes {
+            likeCommentsLabel.text = "\(likeCount) Likes"
+            CommentsLabel.text = "\(commentsCountNum) Comments"
         }
         
         //print(post.statusText)
@@ -144,14 +144,16 @@ class BlogCell: UICollectionViewCell {
         removeConstraints(constraints)
         addConstraintsWithFormat(format: "H:|-8-[v0(44)]-8-[v1]|", views: profileImageView,nameLabel)
         addConstraintsWithFormat(format: "H:|-4-[v0]-4-|", views: statusTextView)
-        addConstraintsWithFormat(format: "H:|-12-[v0]|", views: likeCommentsLabel)
+        addConstraintsWithFormat(format: "H:|-12-[v0]-6-[v1]|", views: likeCommentsLabel,CommentsLabel)
         addConstraintsWithFormat(format: "H:|-12-[v0]-12-|", views: dividerLineView)
         addConstraintsWithFormat(format: "H:|[v0(v1)][v1(v2)][v2]|", views: likeButton,commentButton,shareButton)
         addConstraintsWithFormat(format: "V:|-12-[v0]", views: nameLabel)
         addConstraintsWithFormat(format: "V:[v0(44)]|", views: commentButton)
         addConstraintsWithFormat(format: "V:[v0(44)]|", views: shareButton)
         addConstraintsWithFormat(format: "H:|[v0]|", views: statusImage)
-        addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1]-4-[v2(200)]-8-[v3(v4)][v4(24)]-4-[v5(0.4)]-4-[v6(44)]|", views: profileImageView,statusTextView,statusImage,likeCommentsLabel, CommentsLabel,dividerLineView,likeButton)
+        addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1]-4-[v2(200)]-8-[v3(24)]-4-[v4(0.4)]-4-[v5(44)]|", views: profileImageView,statusTextView,statusImage, likeCommentsLabel,dividerLineView,likeButton)
+        //addConstraintsWithFormat(format: "V:[v0(24)]", views: likeCommentsLabel)
+        addConstraintsWithFormat(format: "V:[v0]-8-[v1(24)]", views: statusImage,CommentsLabel)
     }
     
 
@@ -233,16 +235,17 @@ class BlogCell: UICollectionViewCell {
         //willRemoveSubview(cell.statusImage)
 //        let constraint_add = NSLayoutConstraint.constraints(withVisualFormat: "V:|-8-[v0(44)]-4-[v1]-4-[v2(24)]-4-[v3(0.4)]-4-[v4(44)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileImageView,"v1":statusTextView, "v2":likeCommentsLabel, "v3":dividerLineView, "v4":likeButton])
 //        addConstraints(constraint_add)
-        addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1]-4-[v2(v3)][v3(24)]-4-[v4(0.4)]-4-[v5(44)]|", views: profileImageView,statusTextView, likeCommentsLabel,CommentsLabel, dividerLineView, likeButton)
         addConstraintsWithFormat(format: "H:|-8-[v0(44)]-8-[v1]|", views: profileImageView,nameLabel)
         addConstraintsWithFormat(format: "H:|-4-[v0]-4-|", views: statusTextView)
         addConstraintsWithFormat(format: "H:|-12-[v0]-6-[v1]|", views: likeCommentsLabel,CommentsLabel)
         addConstraintsWithFormat(format: "H:|-12-[v0]-12-|", views: dividerLineView)
         addConstraintsWithFormat(format: "H:|[v0(v1)][v1(v2)][v2]|", views: likeButton,commentButton,shareButton)
         addConstraintsWithFormat(format: "V:|-12-[v0]", views: nameLabel)
+        addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1]-4-[v2(24)]-4-[v3(0.4)]-4-[v4(44)]|", views: profileImageView,statusTextView, likeCommentsLabel, dividerLineView, likeButton)
 //        addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1]-4-[v2(200)]-8-[v3(24)]-4-[v4(0.4)]-4-[v5(44)]|", views: profileImageView,statusTextView,statusImage,likeCommentsLabel,dividerLineView,likeButton)
         addConstraintsWithFormat(format: "V:[v0(44)]|", views: commentButton)
         addConstraintsWithFormat(format: "V:[v0(44)]|", views: shareButton)
+        addConstraintsWithFormat(format: "V:[v0]-4-[v1(24)]", views:statusTextView,CommentsLabel)
     }
 }
 

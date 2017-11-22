@@ -19,6 +19,8 @@
 		114C8FDB1FB53C450011CD65 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C8FDA1FB53C450011CD65 /* ChatMessageCell.swift */; };
 		11544B911FB3B3A10082C919 /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11544B901FB3B3A10082C919 /* ChatLogViewController.swift */; };
 		116369F51FBB441B004DE2AF /* BlogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116369F41FBB441B004DE2AF /* BlogCell.swift */; };
+		11920D571FC5ED14002ADF79 /* PViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11920D561FC5ED14002ADF79 /* PViewController.swift */; };
+		11920D5D1FC61600002ADF79 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 11920D5C1FC61600002ADF79 /* UIImage+ImageEffects.m */; };
 		11C882EA1FBB80FC0076A405 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C882E91FBB80FC0076A405 /* Post.swift */; };
 		11DA147B1FBCB4C800261D35 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA147A1FBCB4C800261D35 /* PostViewController.swift */; };
 		11EA81BB1FAFC6BA008D67A7 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EA81BA1FAFC6BA008D67A7 /* NewMessageViewController.swift */; };
@@ -79,6 +81,10 @@
 		114C8FDA1FB53C450011CD65 /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		11544B901FB3B3A10082C919 /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
 		116369F41FBB441B004DE2AF /* BlogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogCell.swift; sourceTree = "<group>"; };
+		11920D561FC5ED14002ADF79 /* PViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PViewController.swift; sourceTree = "<group>"; };
+		11920D5A1FC615FF002ADF79 /* TresPoint-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TresPoint-Bridging-Header.h"; sourceTree = "<group>"; };
+		11920D5B1FC61600002ADF79 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		11920D5C1FC61600002ADF79 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		11C882E91FBB80FC0076A405 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		11DA147A1FBCB4C800261D35 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		11EA81BA1FAFC6BA008D67A7 /* NewMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
@@ -152,7 +158,10 @@
 		110D07141FB2661D00D846D1 /* UIImageView */ = {
 			isa = PBXGroup;
 			children = (
+				11920D5B1FC61600002ADF79 /* UIImage+ImageEffects.h */,
+				11920D5C1FC61600002ADF79 /* UIImage+ImageEffects.m */,
 				110D07151FB2664300D846D1 /* UIImageView+Cache.swift */,
+				11920D5A1FC615FF002ADF79 /* TresPoint-Bridging-Header.h */,
 			);
 			path = UIImageView;
 			sourceTree = "<group>";
@@ -177,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				11EA81CA1FB02BA6008D67A7 /* ProfileViewController.swift */,
+				11920D561FC5ED14002ADF79 /* PViewController.swift */,
 				114ADF2B1FB0F27C009BD57E /* ProfileVC.swift */,
 				110D07101FB2070200D846D1 /* TempProfileViewController.swift */,
 				110D07121FB20AEA00D846D1 /* TempProfileViewController+handleImage.swift */,
@@ -649,8 +659,10 @@
 				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/KJExpandableTableTree/KJExpandableTableTree.framework",
+				"${BUILT_PRODUCTS_DIR}/LFTwitterProfile/LFTwitterProfile.framework",
 				"${BUILT_PRODUCTS_DIR}/Pastel/Pastel.framework",
 				"${BUILT_PRODUCTS_DIR}/Sharaku/Sharaku.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -662,8 +674,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KJExpandableTableTree.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LFTwitterProfile.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pastel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sharaku.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -686,6 +700,7 @@
 				11EBE6BA1FACD7CD00171DC8 /* AppDelegate.swift in Sources */,
 				11EBE6C21FACD7CD00171DC8 /* TresPoint.xcdatamodeld in Sources */,
 				112512001FBA344D0044AA0F /* CalendarCell.swift in Sources */,
+				11920D571FC5ED14002ADF79 /* PViewController.swift in Sources */,
 				114C8FDB1FB53C450011CD65 /* ChatMessageCell.swift in Sources */,
 				11C882EA1FBB80FC0076A405 /* Post.swift in Sources */,
 				11EBE6F21FAD0B4000171DC8 /* RegisterViewController.swift in Sources */,
@@ -694,6 +709,7 @@
 				110D07131FB20AEA00D846D1 /* TempProfileViewController+handleImage.swift in Sources */,
 				110D07161FB2664300D846D1 /* UIImageView+Cache.swift in Sources */,
 				11EA81C91FB026EB008D67A7 /* CalendarViewController.swift in Sources */,
+				11920D5D1FC61600002ADF79 /* UIImage+ImageEffects.m in Sources */,
 				11EA81C71FB026BD008D67A7 /* BlogPostViewController.swift in Sources */,
 				11EA81BB1FAFC6BA008D67A7 /* NewMessageViewController.swift in Sources */,
 				111D0C971FB4B7F200916F72 /* UserCell.swift in Sources */,
@@ -876,7 +892,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "TresPoint-LLC.TresPoint-LLC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TresPoint/View/UIImageView/TresPoint-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -895,7 +911,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "TresPoint-LLC.TresPoint-LLC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TresPoint/View/UIImageView/TresPoint-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

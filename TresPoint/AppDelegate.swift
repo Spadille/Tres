@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = TabBarViewController()
         //let vc = ChatLogViewController(collectionViewLayout: UICollectionViewLayout())
         //let vc = BlogPostViewController()
-        //let vc = PostViewController()
+        //let vc = PViewController()
         UINavigationBar.appearance().tintColor = UIColor(rgb: 0x7EBCDC)
         application.statusBarStyle = .lightContent
         window?.rootViewController = vc
