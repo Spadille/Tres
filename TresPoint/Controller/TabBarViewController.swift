@@ -31,7 +31,7 @@ class TabBarViewController: UITabBarController, CustomTabBarDelegate,CustomTabBa
         let cvc = CalendarViewController()
         cvc.tabBarItem = UITabBarItem(title: "Date", image: UIImage(named:"calendar"), tag: 2)
         let navic = UINavigationController(rootViewController: cvc)
-        let pvc = TempProfileViewController()
+        let pvc = ProfileViewController()
         pvc.tabBarItem = UITabBarItem(title: "User", image: UIImage(named:"contact_icon"), tag: 3)
         //pvc.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
         let viewControllerList = [ navih,navib,navic,pvc ]

@@ -13,7 +13,6 @@ target 'TresPoint' do
   pod 'KJExpandableTableTree'
   pod 'Pastel'
   pod 'Sharaku'
-  pod 'LFTwitterProfile'
   # Pods for TresPoint
 
   target 'TresPointTests' do

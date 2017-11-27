@@ -24,13 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         //let vc = UINavigationController(rootViewController: HomeViewController())
-        let vc = TabBarViewController()
+        //let vc = TabBarViewController()
         //let vc = ChatLogViewController(collectionViewLayout: UICollectionViewLayout())
         //let vc = BlogPostViewController()
-        //let vc = PViewController()
+        let vc = ProfileViewController()
+        let nv = UINavigationController(rootViewController: vc)
         UINavigationBar.appearance().tintColor = UIColor(rgb: 0x7EBCDC)
         application.statusBarStyle = .lightContent
-        window?.rootViewController = vc
+        window?.rootViewController = nv
         return true
     }
     
