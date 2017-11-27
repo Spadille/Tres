@@ -14,6 +14,7 @@ class User:NSObject {
     var phonenumber:String?
     var profileImage:String?
     var id:String?
+    var headerImageView: String?
     
     init(dict:[String:AnyObject]) {
         super.init()
@@ -21,6 +22,7 @@ class User:NSObject {
         self.email = dict["email"] as? String
         self.name = dict["name"] as? String
         self.phonenumber = dict["phonenumber"] as? String
+        self.headerImageView = dict["headerImage"] as? String
     }
     
     override init(){

@@ -23,6 +23,7 @@ class BlogPostViewController: UIViewController, UICollectionViewDelegateFlowLayo
         observeDataFromFirebase()
     }
     
+    
     @objc func goToPost(){
         let pv = PostViewController()
         self.present(pv, animated: true, completion: nil)
@@ -49,6 +50,7 @@ class BlogPostViewController: UIViewController, UICollectionViewDelegateFlowLayo
     }
     
     let cellId = "BlogCell"
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if let statusText = posts[indexPath.item].statusText {
@@ -110,6 +112,7 @@ class BlogPostViewController: UIViewController, UICollectionViewDelegateFlowLayo
         ]
         NSLayoutConstraint.activate(constraints)
     }
+    
 }
 
 extension BlogPostViewController: UICollectionViewDelegate{
@@ -120,6 +123,7 @@ extension BlogPostViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = tabView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BlogCell

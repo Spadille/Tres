@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0635F0A6C003D38AF03860D8 /* Pods_TresPoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2AEC1AFB6449B6EB11E9C1 /* Pods_TresPoint.framework */; };
+		1109584C1FCC69760051A24B /* GlobalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1109584B1FCC69760051A24B /* GlobalUser.swift */; };
+		1109584E1FCCC62C0051A24B /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1109584D1FCCC62C0051A24B /* CollectionHeaderView.swift */; };
 		110D07161FB2664300D846D1 /* UIImageView+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110D07151FB2664300D846D1 /* UIImageView+Cache.swift */; };
 		111D0C951FB4AF3600916F72 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D0C941FB4AF3600916F72 /* Messages.swift */; };
 		111D0C971FB4B7F200916F72 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D0C961FB4B7F200916F72 /* UserCell.swift */; };
@@ -66,6 +68,8 @@
 
 /* Begin PBXFileReference section */
 		03E022AF7B984869C86D387A /* Pods-TresPointTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresPointTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TresPointTests/Pods-TresPointTests.release.xcconfig"; sourceTree = "<group>"; };
+		1109584B1FCC69760051A24B /* GlobalUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUser.swift; sourceTree = "<group>"; };
+		1109584D1FCCC62C0051A24B /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
 		110D07151FB2664300D846D1 /* UIImageView+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Cache.swift"; sourceTree = "<group>"; };
 		111D0C941FB4AF3600916F72 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		111D0C961FB4B7F200916F72 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				111D0C961FB4B7F200916F72 /* UserCell.swift */,
 				114C8FDA1FB53C450011CD65 /* ChatMessageCell.swift */,
 				116369F41FBB441B004DE2AF /* BlogCell.swift */,
+				1109584D1FCCC62C0051A24B /* CollectionHeaderView.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				11EA81BC1FB00B7C008D67A7 /* User.swift */,
 				111D0C941FB4AF3600916F72 /* Messages.swift */,
 				11C882E91FBB80FC0076A405 /* Post.swift */,
+				1109584B1FCC69760051A24B /* GlobalUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -682,9 +688,11 @@
 				11EA81C11FB01FA1008D67A7 /* CustomTabBar.swift in Sources */,
 				11EBE6BA1FACD7CD00171DC8 /* AppDelegate.swift in Sources */,
 				11EBE6C21FACD7CD00171DC8 /* TresPoint.xcdatamodeld in Sources */,
+				1109584E1FCCC62C0051A24B /* CollectionHeaderView.swift in Sources */,
 				112512001FBA344D0044AA0F /* CalendarCell.swift in Sources */,
 				114C8FDB1FB53C450011CD65 /* ChatMessageCell.swift in Sources */,
 				11C882EA1FBB80FC0076A405 /* Post.swift in Sources */,
+				1109584C1FCC69760051A24B /* GlobalUser.swift in Sources */,
 				11EBE6F21FAD0B4000171DC8 /* RegisterViewController.swift in Sources */,
 				111D0C951FB4AF3600916F72 /* Messages.swift in Sources */,
 				110D07161FB2664300D846D1 /* UIImageView+Cache.swift in Sources */,
