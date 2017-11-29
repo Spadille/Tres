@@ -1,16 +1,16 @@
 //
-//  ProfileViewController.swift
+//  PViewController.swift
 //  TresPoint
 //
-//  Created by Shiyu Zhang on 11/6/17.
+//  Created by Shiyu Zhang on 11/28/17.
 //  Copyright © 2017 Shiyu Zhang. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
+class PViewController: UIViewController,UIGestureRecognizerDelegate {
 
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate{
     
     let min_header: CGFloat = 22
     let bar_offset: CGFloat = 110
@@ -38,43 +38,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     var imagePicked:Int = 0
     var avatarImageView: UIImageView?
     
-    var timer = Timer()
-    var seconds:Int = 0
-    var isTimerRunning:Bool = false
-    let timeLabel: UILabel = {
-        let tl = UILabel()
-        tl.text = "00:00:00"
-        return tl
-    }()
-    
-//    var customTitleView: UIView? = {
-//        let myLabel:UILabel = UILabel()
-//        myLabel.translatesAutoresizingMaskIntoConstraints = false
-//        myLabel.text = "My Handle"
-//        myLabel.numberOfLines = 1
-//
-//        myLabel.textColor = UIColor.white
-//        myLabel.font = UIFont.boldSystemFont(ofSize: 13)
-//
-//        let smallText = UILabel()
-//        smallText.translatesAutoresizingMaskIntoConstraints = false
-//        smallText.text = "2666 Tweets"
-//        smallText.numberOfLines = 1
-//        smallText.textColor = UIColor.white
-//        smallText.font = UIFont.boldSystemFont(ofSize: 10)
-//        let wrapper = UIView()
-//        wrapper.addSubview(myLabel)
-//        wrapper.addSubview(smallText)
-//        wrapper.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-0-[v0]-0-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":smallText]))
-//        wrapper.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[v0]-2-[v1]-0-|", options: .alignAllCenterX, metrics: nil, views: ["v0":myLabel,"v1":smallText]))
-//
-//        wrapper.frame = CGRect(x: 0, y: 0, width: max(myLabel.intrinsicContentSize.width+4,smallText.intrinsicContentSize.width+4), height: myLabel.intrinsicContentSize.height+smallText.intrinsicContentSize.height+2)
-//
-//        wrapper.clipsToBounds = true
-//        return wrapper
-//    }()
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         getProfileInfo()
@@ -91,8 +54,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         views["super"] = self.view
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.delegate = self
-        tableView.dataSource = self
+//        tableView.delegate = self
+//        tableView.dataSource = self
         self.tableView = tableView
         self.view.addSubview(tableView)
         views["tableView"] = tableView
@@ -136,7 +99,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableHeaderView.addSubview(avatarImageView!)
         avatarImageView!.layer.zPosition = 5
         //imageHeaderView!.layer.zPosition = 4
-
+        
         
         /*
          * At this point tableHeader views are ordered like this:
@@ -193,7 +156,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let magicConstraint: NSLayoutConstraint = NSLayoutConstraint(item: headerImageView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 0.0)
         self.view.addConstraint(magicConstraint)
-
+        
         
         // ===== avatar should stick to left with default margin spacing  ========
         format = "|-[avatarImageView]"
@@ -240,7 +203,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     @objc func modifyImageView(_ sender:UITapGestureRecognizer){
-        //print(123)
+        print(123)
         //let uid = userauth.currentUser?.uid
         //Storage.storage().reference().child("profileImage").child(uid!)
         //var ut:UITapGestureRecognizer = sender
@@ -253,18 +216,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
                 picker.sourceType = UIImagePickerControllerSourceType.camera
-                    self.present(picker, animated: true, completion: nil)
-                } else {
+                self.present(picker, animated: true, completion: nil)
+            } else {
                 print("error no camera")
                 let newalert = UIAlertController(title: "No Camera", message: "Please select photo library", preferredStyle: .alert)
                 newalert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                 self.present(newalert, animated: true, completion: nil)
-                }
-            }))
+            }
+        }))
         alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action) in
             print("action come to here")
-                picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-                self.present(picker, animated: true, completion: nil)
+            picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            self.present(picker, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
@@ -296,11 +259,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 15
     }
+    
+    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -318,7 +283,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         views["super"] = self.view
         sectionView.addSubview(segmentedControl)
         sectionView.backgroundColor = UIColor.white
-
+        
         segmentedControl.leadingAnchor.constraint(equalTo: sectionView.leadingAnchor).isActive = true
         segmentedControl.trailingAnchor.constraint(equalTo: sectionView.trailingAnchor).isActive = true
         sectionView.addConstraint(NSLayoutConstraint(item: segmentedControl, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: sectionView, attribute: NSLayoutAttribute.centerX, multiplier: 1.0, constant: 0.0))
@@ -361,8 +326,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         barAnimationComplete = false
         self.imageHeaderView?.image = self.originalBackgroundImage
-//        self.imageHeaderView = self.createBgImage()
-//        self.originalBackgroundImage = self.imageHeaderView?.image
+        //        self.imageHeaderView = self.createBgImage()
+        //        self.originalBackgroundImage = self.imageHeaderView?.image
         self.tableView?.tableHeaderView?.exchangeSubview(at: 1, withSubviewAt: 2)
     }
     
@@ -387,7 +352,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if yPos > headerSwitchOffset! + 20 && yPos <= headerSwitchOffset! + 20 + 40 {
             let delta: CGFloat = 40 + 20 - (yPos - headerSwitchOffset!)
-        self.navigationController?.navigationBar.setTitleVerticalPositionAdjustment(delta, for: .default)
+            self.navigationController?.navigationBar.setTitleVerticalPositionAdjustment(delta, for: .default)
             self.imageHeaderView?.image = self.blurWithImageAt(percent: (60-delta)/60.0)
         }
         
@@ -425,30 +390,30 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 myLabel.text = "My Name"
             }
             myLabel.numberOfLines = 1
-
+            
             myLabel.textColor = UIColor.white
             myLabel.font = UIFont.boldSystemFont(ofSize: 15)
-
-//            let smallText = UILabel()
-//            smallText.translatesAutoresizingMaskIntoConstraints = false
-//            smallText.text = ""
-//            smallText.numberOfLines = 1
-//            smallText.textColor = UIColor.white
-//            smallText.font = UIFont.boldSystemFont(ofSize: 10)
+            
+            //            let smallText = UILabel()
+            //            smallText.translatesAutoresizingMaskIntoConstraints = false
+            //            smallText.text = ""
+            //            smallText.numberOfLines = 1
+            //            smallText.textColor = UIColor.white
+            //            smallText.font = UIFont.boldSystemFont(ofSize: 10)
             let wrapper = UIView()
             wrapper.addSubview(myLabel)
- //           wrapper.addSubview(smallText)
-//            wrapper.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-0-[v0]-0-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":myLabel,"v1":smallText]))
-//            wrapper.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[v0]-2-[v1]-0-|", options: .alignAllCenterX, metrics: nil, views: ["v0":myLabel,"v1":smallText]))
+            //           wrapper.addSubview(smallText)
+            //            wrapper.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-0-[v0]-0-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":myLabel,"v1":smallText]))
+            //            wrapper.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[v0]-2-[v1]-0-|", options: .alignAllCenterX, metrics: nil, views: ["v0":myLabel,"v1":smallText]))
             
             wrapper.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-0-[v0]-0-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":myLabel]))
             wrapper.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[v0]-0-|", options: .alignAllCenterX, metrics: nil, views: ["v0":myLabel]))
-    
-//            wrapper.frame = CGRect(x: 0, y: 0, width: max(myLabel.intrinsicContentSize.width+6,smallText.intrinsicContentSize.width+6), height: myLabel.intrinsicContentSize.height+smallText.intrinsicContentSize.height+2)
+            
+            //            wrapper.frame = CGRect(x: 0, y: 0, width: max(myLabel.intrinsicContentSize.width+6,smallText.intrinsicContentSize.width+6), height: myLabel.intrinsicContentSize.height+smallText.intrinsicContentSize.height+2)
             wrapper.frame = CGRect(x: 0, y: 0, width: 60, height: 40)
-
+            
             wrapper.clipsToBounds = true
-
+            
             customTitleView  = wrapper;
         }
         return customTitleView!
@@ -461,20 +426,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let followButton = UIButton(type: .roundedRect)
         followButton.translatesAutoresizingMaskIntoConstraints = false
         followButton.setTitle("Clock", for: .normal)
-        followButton.isUserInteractionEnabled = true
         followButton.addTarget(self, action: #selector(clockWorkingTime), for: .touchUpInside)
         followButton.layer.cornerRadius = 2
         followButton.layer.borderWidth = 1
         followButton.layer.borderColor = UIColor.blue.cgColor
-        timeLabel.translatesAutoresizingMaskIntoConstraints = false
-        //clockTime.text = "00:00"
-        timeLabel.textAlignment = .center
-        timeLabel.layer.borderColor = UIColor.blue.cgColor
-        timeLabel.font = UIFont.systemFont(ofSize: 16, weight: .light)
-        views["clockTime"] = timeLabel
         views["followButton"] = followButton
         view.addSubview(followButton)
-        view.addSubview(timeLabel)
         let nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.text = user?.name ?? "Undefined"
@@ -496,11 +453,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         constraints = NSLayoutConstraint.constraints(withVisualFormat: format!, options: NSLayoutFormatOptions(), metrics: nil, views: views)
         view.addConstraints(constraints)
         
-        format = "[clockTime(80)]-|"
-        constraints = NSLayoutConstraint.constraints(withVisualFormat: format!, options: NSLayoutFormatOptions(), metrics: nil, views: views)
-        view.addConstraints(constraints)
-        
-        format = "V:|-[followButton]-4-[clockTime]"
+        format = "V:|-[followButton]"
         constraints = NSLayoutConstraint.constraints(withVisualFormat: format!, options: NSLayoutFormatOptions(), metrics: nil, views: views)
         view.addConstraints(constraints)
         
@@ -511,116 +464,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         return view;
     }
     
-    
     @objc func clockWorkingTime(){
-        print("what?")
-        let uid = userauth.currentUser?.uid
-        databaseRef.child("users").child(uid!).observeSingleEvent(of: .value) { (snapshot) in
-            if let dict = snapshot.value as? [String:String] {
-                print(dict)
-                if let isworking = dict["isWorking"] {
-                    if isworking == "true" {
-                        let alert = UIAlertController(title: "End Work", message: "Are you sure to end of your work?", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                        alert.addAction(UIAlertAction(title: "End", style: .default, handler: { (action) in
-                            self.timeLabel.text = "00:00:00"
-                            DispatchQueue.global(qos: .background).async {
-                                self.calculateTime()
-                                self.databaseRef.child("user").child(uid!).updateChildValues(["isWorking":"false"])
-                                snapshot.setValue("0", forKey: "startWorkingTime")
-                                if let totalTime = dict["totalWorkingTime"] {
-                                    var numberTime = Int(totalTime)
-                                    numberTime! += self.seconds
-                                self.databaseRef.child("user").child(uid!).updateChildValues(["totalWorkingTime":numberTime!])
-                                }
-                            }
-                        }))
-                        self.present(alert, animated: true, completion: nil)
-                    } else if isworking == "false" {
-                        let alert = UIAlertController(title: "Start Work", message: nil, preferredStyle: UIAlertControllerStyle.alert)
-                        alert.addTextField(configurationHandler: { (textField) in
-                            textField.placeholder = "What are you going to do?"
-//                            let heightConstraint = NSLayoutConstraint(item: textField, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100)
-                            textField.textColor = UIColor.black
-                            textField.font = UIFont.boldSystemFont(ofSize: 14)
-                        })
-                        
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                            if let tf = alert.textFields{
-                                if let tft = tf[0].text{
-                                    if tft.count != 0 {
-                                        //start to calculate the number
-                                        self.startToTime()
-                                        
-                                    } else {
-//                                        print("here")
-//                                        self.dismiss(animated: true, completion: {
-//                                        })
-                                        let smallAlert = UIAlertController(title: "Error", message: "Please write some descriptions about what you will do!", preferredStyle: .alert)
-                                        smallAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                                        self.present(smallAlert, animated: true, completion: nil)
-                                    }
-                                } else {
-                                    //tft is nil
-                                }
-                            }
-                        }))
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                } else {
-                    print("np isworking")
-                }
-            }
-        }
-
+        
     }
-    
-    func startToTime(){
-        let uid = userauth.currentUser?.uid
-        let time = Date().timeIntervalSince1970
-        let timestamp = String(time)
-        let newValue = ["isWorking":"true","startWorkingTime":timestamp]
-        databaseRef.child("users").child(uid!).updateChildValues(newValue)
-        seconds = 0
-        runTimer(timeLabel: timeLabel)
-    }
-    
-    func calculateTime(){
-        let uid = userauth.currentUser?.uid
-        databaseRef.child("user").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let dict = snapshot.value as? [String:String] {
-                if let swt = dict["startWorkingTime"]{
-                    //let dateFormatter = DateFormatter()
-                    //dateFormatter.dateFormat = "hh:mm:ss a"
-                    let ts = Double(swt)
-                    //let start_time = Date(timeIntervalSince1970: ts!)
-//                    let current_time = Date().timeIntervalSince1970
-                    let total_time = Date(timeIntervalSinceReferenceDate: ts!)
-                    self.seconds = Int(total_time.timeIntervalSince1970)
-                    
-                    //self.timeLabel.text = self.timeString(time: TimeInterval(self.seconds))
-                }
-            }
-        })
-    }
-    
-    
-    func runTimer(timeLabel:UILabel){
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-    }
-    
-    @objc func updateTimer(){
-        seconds += 1
-        timeLabel.text = timeString(time: TimeInterval(seconds))
-    }
-    
-    func timeString(time:TimeInterval) -> String {
-        let hours = Int(time) / 3600
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
-        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
-    }
-    
     
     func blurWithImageAt(percent: CGFloat)-> UIImage {
         var keyNumber:NSNumber = 0
@@ -660,15 +506,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func fillBlurredImageCache(){
         let maxBlur:CGFloat = 30;
         self.blurredImageCache = NSMutableDictionary()
-//        self.blurredImageCache![NSNumber.init(value: 1)] = self.blurWithImageEffects(image: originalBackgroundImage!, radius: (maxBlur * CGFloat(1)/10.0))
+        //        self.blurredImageCache![NSNumber.init(value: 1)] = self.blurWithImageEffects(image: originalBackgroundImage!, radius: (maxBlur * CGFloat(1)/10.0))
         for i in 0...10 {
             self.blurredImageCache![NSNumber.init(value: i)] = self.blurWithImageEffects(image: originalBackgroundImage!, radius: (maxBlur * CGFloat(i)/10.0))
         }
     }
+
 }
 
-
-extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension PViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     
@@ -679,7 +525,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         } else if let originImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             selectedImageFromPicker = originImage
         }
-    
+        
         if let selectedImage = selectedImageFromPicker {
             if imagePicked == 1 {
                 imageHeaderView?.image = selectedImage
@@ -731,5 +577,5 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
             })
         }
     }
-
 }
+

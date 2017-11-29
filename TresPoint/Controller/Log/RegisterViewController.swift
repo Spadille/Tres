@@ -157,7 +157,7 @@ class RegisterViewController: UIViewController {
                 return
             }
             let uid = user?.uid
-            let newUser = ["name":fullname,"email":email,"phonenumber":phoneNumber]
+            let newUser = ["name":fullname,"email":email,"phonenumber":phoneNumber,"isWorking":"false","startWorkingTime":"00:00:00","totalWorkingTime":"0"]
             let dataRef = Database.database().reference().child("users").child(uid!)
             dataRef.setValue(newUser)
             Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
