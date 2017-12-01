@@ -16,6 +16,8 @@
 		111D0C971FB4B7F200916F72 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D0C961FB4B7F200916F72 /* UserCell.swift */; };
 		112511FD1FBA105D0044AA0F /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112511FC1FBA105C0044AA0F /* RoundTextField.swift */; };
 		112512001FBA344D0044AA0F /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112511FF1FBA344D0044AA0F /* CalendarCell.swift */; };
+		1133BC501FD09572003D2472 /* workInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1133BC4F1FD09572003D2472 /* workInfoCell.swift */; };
+		1133BC521FD0982B003D2472 /* workInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1133BC511FD0982B003D2472 /* workInfo.swift */; };
 		114C8FDB1FB53C450011CD65 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C8FDA1FB53C450011CD65 /* ChatMessageCell.swift */; };
 		11544B911FB3B3A10082C919 /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11544B901FB3B3A10082C919 /* ChatLogViewController.swift */; };
 		116369F51FBB441B004DE2AF /* BlogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116369F41FBB441B004DE2AF /* BlogCell.swift */; };
@@ -77,6 +79,8 @@
 		111D0C961FB4B7F200916F72 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		112511FC1FBA105C0044AA0F /* RoundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
 		112511FF1FBA344D0044AA0F /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		1133BC4F1FD09572003D2472 /* workInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workInfoCell.swift; sourceTree = "<group>"; };
+		1133BC511FD0982B003D2472 /* workInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workInfo.swift; sourceTree = "<group>"; };
 		114C8FDA1FB53C450011CD65 /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		11544B901FB3B3A10082C919 /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
 		116369F41FBB441B004DE2AF /* BlogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogCell.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 			children = (
 				112511FE1FBA34260044AA0F /* CalendarCell */,
 				111D0C961FB4B7F200916F72 /* UserCell.swift */,
+				1133BC4F1FD09572003D2472 /* workInfoCell.swift */,
 				114C8FDA1FB53C450011CD65 /* ChatMessageCell.swift */,
 				116369F41FBB441B004DE2AF /* BlogCell.swift */,
 				1109584D1FCCC62C0051A24B /* CollectionHeaderView.swift */,
@@ -322,6 +327,7 @@
 				111D0C941FB4AF3600916F72 /* Messages.swift */,
 				11C882E91FBB80FC0076A405 /* Post.swift */,
 				1109584B1FCC69760051A24B /* GlobalUser.swift */,
+				1133BC511FD0982B003D2472 /* workInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -694,6 +700,7 @@
 				1109584E1FCCC62C0051A24B /* CollectionHeaderView.swift in Sources */,
 				112512001FBA344D0044AA0F /* CalendarCell.swift in Sources */,
 				11030CAA1FCDBE11000DB3A4 /* PViewController.swift in Sources */,
+				1133BC501FD09572003D2472 /* workInfoCell.swift in Sources */,
 				114C8FDB1FB53C450011CD65 /* ChatMessageCell.swift in Sources */,
 				11C882EA1FBB80FC0076A405 /* Post.swift in Sources */,
 				1109584C1FCC69760051A24B /* GlobalUser.swift in Sources */,
@@ -709,6 +716,7 @@
 				11EBE6F61FAD126600171DC8 /* FirebaseStore.swift in Sources */,
 				11544B911FB3B3A10082C919 /* ChatLogViewController.swift in Sources */,
 				11EBE6F01FACE81000171DC8 /* LoginViewController.swift in Sources */,
+				1133BC521FD0982B003D2472 /* workInfo.swift in Sources */,
 				11EA81BD1FB00B7C008D67A7 /* User.swift in Sources */,
 				11EA81C31FB01FB8008D67A7 /* CustomTabBarItem.swift in Sources */,
 				11DA147B1FBCB4C800261D35 /* PostViewController.swift in Sources */,

@@ -33,12 +33,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     let databaseRef = Database.database().reference()
     let userauth = Auth.auth()
     
+    
     var customTitleView: UIView?
     var user:User?
     var imagePicked:Int = 0
     var avatarImageView: UIImageView?
     
-    var timer = Timer()
+    var timer: Timer?
     var seconds:Int = 0
     var isTimerRunning:Bool = false
     let timeLabel: UILabel = {
@@ -46,6 +47,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         tl.text = "00:00:00"
         return tl
     }()
+    
+    var works = [WorkInfo]()
+    let cellID = "cellID"
     
 //    var customTitleView: UIView? = {
 //        let myLabel:UILabel = UILabel()
@@ -83,6 +87,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let sharedApplication = UIApplication.shared
         let kStatusBarHeight: CGFloat = sharedApplication.statusBarFrame.size.height
         let kNavBarHeight:CGFloat = self.navigationController!.navigationBar.frame.size.height
+        
         
         /* To compensate  the adjust scroll insets */
         headerSwitchOffset = headerHeight - (kStatusBarHeight + kNavBarHeight)  - kStatusBarHeight - kNavBarHeight
@@ -220,9 +225,16 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         constraint.priority = UILayoutPriority(rawValue: 801)
         self.view.addConstraint(constraint)
         
+        //observeTime()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(observeTime), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        
         DispatchQueue.global(qos: .default).async {
             self.fillBlurredImageCache()
         }
+        
+        setWorkCell()
+        self.tableView?.register(workInfoCell.self, forCellReuseIdentifier: cellID)
     }
     
     override func didReceiveMemoryWarning() {
@@ -296,22 +308,54 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 42
+    }
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        //print(works.count)
+        return works.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "item \(indexPath.row+1)"
+        //let cell = UITableViewCell()
+        //cell.textLabel?.text = "item \(indexPath.row+1)"
+        let cell = self.tableView?.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! workInfoCell
+        let work = works[indexPath.row]
+        cell.work = work
         return cell
     }
     
+    func setWorkCell(){
+        works.removeAll()
+        let uid = Auth.auth().currentUser?.uid
+        let dataRef = Database.database().reference().child("user-work").child(uid!).queryLimited(toFirst: 20)
+        dataRef.observeSingleEvent(of: .value) { (snapshot) in
+            //print(snapshot)
+            if let dict = snapshot.value as? [String:[String:String]]{
+                for value in dict.values {
+                    let work = WorkInfo(dict: value)
+                    self.works.append(work)
+                    self.works.sort(by: { (work1, work2) -> Bool in
+                        let w1 = work1.timestamp
+                        let w2 = work2.timestamp
+                        return Double(w1!)! > Double(w2!)!
+                    })
+                    DispatchQueue.main.async {
+                        self.tableView?.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionView = UIView()
-        let items:[String] = ["Posts", "Photos", "Favorites"]
+        //let items:[String] = ["Posts", "Photos", "Favorites"]
+        let items:[String] = ["Working"]
         let segmentedControl: UISegmentedControl = UISegmentedControl(items: items)
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         var views = [String:UIView]()
@@ -513,25 +557,46 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     @objc func clockWorkingTime(){
-        print("what?")
+        //print("what?")
         let uid = userauth.currentUser?.uid
         databaseRef.child("users").child(uid!).observeSingleEvent(of: .value) { (snapshot) in
             if let dict = snapshot.value as? [String:String] {
-                print(dict)
+                //print(dict)
                 if let isworking = dict["isWorking"] {
                     if isworking == "true" {
                         let alert = UIAlertController(title: "End Work", message: "Are you sure to end of your work?", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                         alert.addAction(UIAlertAction(title: "End", style: .default, handler: { (action) in
                             self.timeLabel.text = "00:00:00"
+                            
                             DispatchQueue.global(qos: .background).async {
-                                self.calculateTime()
-                                self.databaseRef.child("user").child(uid!).updateChildValues(["isWorking":"false"])
-                                snapshot.setValue("0", forKey: "startWorkingTime")
+                                //self.calculateTime()
+                                //print("no key 1")
+                                
+                                let updateDict = ["isWorking":"false","startWorkingTime":"0"]
+                                //snapshot.setValuesForKeys(updateDict)
+                                //snapshot.setValue("false", forKey: "isWorking")
+                                self.databaseRef.child("users").child(uid!).updateChildValues(updateDict, withCompletionBlock: { (error, ref) in
+                                    if let error = error {
+                                        print(error.localizedDescription)
+                                    }
+                                })
+                                
+                                //snapshot.setValue("0", forKey: "startWorkingTime")
+                                //print("no key 2")
                                 if let totalTime = dict["totalWorkingTime"] {
-                                    var numberTime = Int(totalTime)
-                                    numberTime! += self.seconds
-                                self.databaseRef.child("user").child(uid!).updateChildValues(["totalWorkingTime":numberTime!])
+                                    var numberTime = Int(totalTime)!
+                                    numberTime += self.seconds
+                                    self.uploadEndWorkInfoToFirebase(second: self.seconds)
+                                    self.timer?.invalidate()
+                                    self.timer = nil
+                                    self.databaseRef.child("users").child(uid!).updateChildValues(["totalWorkingTime":"\(numberTime)"], withCompletionBlock: { (error, ref) in
+                                        if let error = error {
+                                            print(error.localizedDescription)
+                                        }
+                                        self.seconds = 0
+                                    })
+                                    
                                 }
                             }
                         }))
@@ -550,6 +615,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                                 if let tft = tf[0].text{
                                     if tft.count != 0 {
                                         //start to calculate the number
+                                        self.uploadStartWorkInfoToFirebase(workDetail: tft)
                                         self.startToTime()
                                         
                                     } else {
@@ -560,19 +626,48 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                                         smallAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                                         self.present(smallAlert, animated: true, completion: nil)
                                     }
-                                } else {
-                                    //tft is nil
                                 }
                             }
                         }))
                         self.present(alert, animated: true, completion: nil)
                     }
                 } else {
-                    print("np isworking")
+                    //print("np isworking")
                 }
             }
         }
 
+    }
+    
+    func uploadStartWorkInfoToFirebase(workDetail:String){
+        let uid = Auth.auth().currentUser?.uid
+        var dict = [String:String]()
+        dict["startWorkingTime"] = String(Date().timeIntervalSince1970)
+        dict["workDetail"] = workDetail
+        dict["timestamp"] = String(Date().timeIntervalSince1970)
+        dict["isWorking"] = "true"
+        dict["totalWorkingTime"] = ""
+        //var upwork = WorkInfo(dict: dict)
+        databaseRef.child("user-work").child(uid!).childByAutoId().updateChildValues(dict) { (error, ref) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func uploadEndWorkInfoToFirebase(second:Int){
+        let uid = Auth.auth().currentUser?.uid
+        var dict = [String:String]()
+        dict["startWorkingTime"] = ""
+        dict["workDetail"] = ""
+        dict["timestamp"] = String(Date().timeIntervalSince1970)
+        dict["isWorking"] = "false"
+        dict["totalWorkingTime"] = "\(second)"
+        databaseRef.child("user-work").child(uid!).childByAutoId().updateChildValues(dict) { (error, ref) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func startToTime(){
@@ -585,28 +680,61 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         runTimer(timeLabel: timeLabel)
     }
     
-    func calculateTime(){
+    @objc func calculateTime(){
         let uid = userauth.currentUser?.uid
-        databaseRef.child("user").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+        databaseRef.child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
             if let dict = snapshot.value as? [String:String] {
                 if let swt = dict["startWorkingTime"]{
                     //let dateFormatter = DateFormatter()
                     //dateFormatter.dateFormat = "hh:mm:ss a"
                     let ts = Double(swt)
                     //let start_time = Date(timeIntervalSince1970: ts!)
-//                    let current_time = Date().timeIntervalSince1970
-                    let total_time = Date(timeIntervalSinceReferenceDate: ts!)
-                    self.seconds = Int(total_time.timeIntervalSince1970)
+                    //                    let current_time = Date().timeIntervalSince1970
+                    let total_time = Double(Date().timeIntervalSince1970)
                     
-                    //self.timeLabel.text = self.timeString(time: TimeInterval(self.seconds))
+                    //print("\(ts!) + \(total_time) ")
+                    self.seconds = Int(total_time - ts!)
+                    //print(self.seconds)
+                    self.timeLabel.text = self.timeString(time: TimeInterval(self.seconds))
                 }
             }
         })
     }
     
+    @objc func observeTime(){
+        let uid = userauth.currentUser?.uid
+        databaseRef.child("users").child(uid!).observeSingleEvent(of: .value) { (snapshot) in
+            if let dict = snapshot.value as? [String:String] {
+                if let working = dict["isWorking"] {
+                    if working == "false" {
+                        return
+                    } else {
+                        if let swt = dict["startWorkingTime"]{
+                            //print("called")
+                            //let dateFormatter = DateFormatter()
+                            //dateFormatter.dateFormat = "hh:mm:ss a"
+                            let ts = Double(swt)
+                            //let start_time = Date(timeIntervalSince1970: ts!)
+                            //                    let current_time = Date().timeIntervalSince1970
+                            let total_time = Double(Date().timeIntervalSince1970)
+                            
+                            //print("\(ts!) + \(total_time) ")
+                            self.seconds = Int(total_time - ts!)
+                            //print(self.seconds)
+                            self.timeLabel.text = self.timeString(time: TimeInterval(self.seconds))
+                            self.runTimer(timeLabel: self.timeLabel)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     
     func runTimer(timeLabel:UILabel){
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        }
     }
     
     @objc func updateTimer(){
