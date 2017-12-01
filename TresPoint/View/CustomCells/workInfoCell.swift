@@ -24,6 +24,7 @@ class workInfoCell:UITableViewCell{
     }
     
     
+    
     let timeLabel: UILabel = {
         let tl = UILabel()
         //tl.text = "HH:MM:SS"
@@ -46,20 +47,22 @@ class workInfoCell:UITableViewCell{
     
     
     
+    
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(timeLabel)
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        //setupView()
         addSubview(profileImageView)
+        addSubview(timeLabel)
         profileImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
         profileImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        timeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        timeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -4).isActive = true
         timeLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 18).isActive = true
         timeLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
         timeLabel.heightAnchor.constraint(equalTo: (textLabel?.heightAnchor)!).isActive = true
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -67,23 +70,16 @@ class workInfoCell:UITableViewCell{
     }
     
     
+    
+    
+    
     func setWorkInfo(){
+        if let isworking = work?.isworking {
         
-        if let timestamp = work?.timestamp {
-            let ts = work?.timestamp
-            if let seconds = Double(ts!) {
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "hh:mm:ss a"
-                let time = Date(timeIntervalSince1970: seconds)
-                timeLabel.text = dateFormatter.string(from: time)
-            }
-        }
-        
-        if let isworking = work?.isworking, let totalTime = work?.totalTime {
             if isworking == "true" {
                 textLabel?.text = "Start Working"
             } else {
-                if let tempTime = Int(totalTime) {
+                if let totalTime = work?.totalTime, let tempTime = Int(totalTime) {
                     let finalString = timeString(time: TimeInterval(tempTime))
                     textLabel?.text = "End Working, worked \(finalString)"
                 }else {
@@ -91,9 +87,13 @@ class workInfoCell:UITableViewCell{
                 }
             }
         }
+        detailTextLabel?.text = work?.workDetail
         
-        if let workdetail = work?.workDetail {
-            detailTextLabel?.text = workdetail
+        if let timestamp = work?.timestamp, let seconds = Double(timestamp) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+            let time = Date(timeIntervalSince1970: seconds)
+            timeLabel.text = dateFormatter.string(from: time)
         }
     }
     

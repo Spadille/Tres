@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'FB1E1182FB0FFFEDA9898715A1DDDB30'
+               BlueprintIdentifier = '78419DFD9D553F82F0B6BE9959BF9739'
                BlueprintName = 'Sharaku'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Sharaku.framework'>

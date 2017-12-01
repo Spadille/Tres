@@ -9,11 +9,12 @@
 import UIKit
 import CoreData
 import Firebase
+import UserNotifications
 
 let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate, MessagingDelegate  {
 
     var window: UIWindow?
     var infoViewIsShowing = false
@@ -24,15 +25,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         //let vc = UINavigationController(rootViewController: HomeViewController())
-        //let vc = TabBarViewController()
+        let vc = TabBarViewController()
         //let vc = ChatLogViewController(collectionViewLayout: UICollectionViewLayout())
         //let vc = BlogPostViewController()
-        let vc = ProfileViewController()
-        let nv = UINavigationController(rootViewController: vc)
+        //let vc = ProfileViewController()
+        //let nv = UINavigationController(rootViewController: vc)
         UINavigationBar.appearance().tintColor = UIColor(rgb: 0x7EBCDC)
         application.statusBarStyle = .lightContent
-        window?.rootViewController = nv
+        window?.rootViewController = vc
+        
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
+        application.registerForRemoteNotifications()
+        
+        Messaging.messaging().delegate = self
+        
+        let token = Messaging.messaging().fcmToken
+        print("FCM token: \(token ?? "")")
+        
         return true
+    }
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        //print("Firebase registration token: \(fcmToken)")
     }
     
     func infoView(message:String, color: UIColor){

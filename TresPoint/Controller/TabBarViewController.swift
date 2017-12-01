@@ -33,8 +33,9 @@ class TabBarViewController: UITabBarController, CustomTabBarDelegate,CustomTabBa
         let navic = UINavigationController(rootViewController: cvc)
         let pvc = ProfileViewController()
         pvc.tabBarItem = UITabBarItem(title: "User", image: UIImage(named:"contact_icon"), tag: 3)
+        let navip = UINavigationController(rootViewController: pvc)
         //pvc.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
-        let viewControllerList = [ navih,navib,navic,pvc ]
+        let viewControllerList = [ navih,navib,navic,navip ]
         //let viewControllerList = [hvc,bvc,cvc,pvc]
         viewControllers = viewControllerList
         //viewControllers = viewControllerList.map{UINavigationController(rootViewController: $0)}

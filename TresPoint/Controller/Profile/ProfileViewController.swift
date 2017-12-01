@@ -309,7 +309,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 42
+        return 72
     }
 
     
@@ -320,8 +320,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = UITableViewCell()
-        //cell.textLabel?.text = "item \(indexPath.row+1)"
         let cell = self.tableView?.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! workInfoCell
         let work = works[indexPath.row]
         cell.work = work
