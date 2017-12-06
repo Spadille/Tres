@@ -187,14 +187,14 @@ class BlogCell: UICollectionViewCell {
 //        bu.addTarget(self, action: #selector(addLike), for: .touchUpInside)
 //    }
     
-    let likeButton = BlogCell.buttonForTitle(title:"Like",imageName:"add_pressed")
-    let commentButton = BlogCell.buttonForTitle(title: "Comment", imageName: "add_pressed")
+    let likeButton = BlogCell.buttonForTitle(title:"Like",imageName:"like")
+    let commentButton = BlogCell.buttonForTitle(title: "Comment", imageName: "talks")
     
 //    lazy var commentButton = BlogCell.buttonForTitles(title: "Comment", imageName: "add_pressed"){ (bu) in
 //        bu.addTarget(self, action: #selector(addComment), for: .touchUpInside)
 //    }
     
-    let shareButton = BlogCell.buttonForTitle(title: "Share", imageName: "add_pressed")
+    let shareButton = BlogCell.buttonForTitle(title: "Share", imageName: "shares")
     
     
     override func layoutIfNeeded() {
