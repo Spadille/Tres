@@ -19,6 +19,7 @@ class workInfoCell:UITableViewCell{
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        textLabel?.font = UIFont.boldSystemFont(ofSize: 12)
         textLabel?.frame = CGRect(x: 56, y: (textLabel?.frame.origin.y)! - 2, width: (textLabel?.frame.width)!, height: (textLabel?.frame.height)!)
         detailTextLabel?.frame = CGRect(x: 56, y: (detailTextLabel?.frame.origin.y)! + 2, width: (detailTextLabel?.frame.width)!, height: (detailTextLabel?.frame.height)!)
     }
