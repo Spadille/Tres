@@ -9,6 +9,8 @@
 import UIKit
 
 class BlogCell: UICollectionViewCell {
+    var id:String?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.layer.borderColor = UIColor.white.cgColor

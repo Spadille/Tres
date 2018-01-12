@@ -59,7 +59,7 @@ class CustomTabBar:UIView{
         customTabBarItems = []
         tabBarButtons = []
         
-        initialTabBarItemIndex = 1
+        initialTabBarItemIndex = 2
         selectedTabBarItemIndex = initialTabBarItemIndex
         
         slideAnimationDuration = 0.6
@@ -178,8 +178,8 @@ class CustomTabBar:UIView{
         UIView.animate(withDuration: slideAnimationDuration - rightMaskDelay, delay: rightMaskDelay, options: UIViewAnimationOptions(), animations: {
             self.rightMask.frame.origin.x += overlaySlidingMultiplier
             self.rightMask.frame.size.width += -overlaySlidingMultiplier
-            self.customTabBarItems[from].iconView.tintColor = UIColor.black
-            self.customTabBarItems[to].iconView.tintColor = UIColor.blue
+//            self.customTabBarItems[from].iconView.tintColor = UIColor.black
+//            self.customTabBarItems[to].iconView.tintColor = UIColor.blue
         }, completion: nil)
         
     }

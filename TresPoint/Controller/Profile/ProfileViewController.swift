@@ -79,6 +79,22 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 //    }()
     
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh),for: .valueChanged)
+        refreshControl.tintColor = infoColor.colorSmoothRed
+        return refreshControl
+    }()
+    
+    @objc func handleRefresh(){
+        works.removeAll()
+        tableView?.reloadData()
+        setWorkCell()
+        //self.tabView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getProfileInfo()
@@ -89,7 +105,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let kNavBarHeight:CGFloat = self.navigationController!.navigationBar.frame.size.height
         
         
-        /* To compensate  the adjust scroll insets */
         headerSwitchOffset = headerHeight - (kStatusBarHeight + kNavBarHeight)  - kStatusBarHeight - kNavBarHeight
         
         var views = [String:UIView]()
@@ -101,7 +116,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tableView = tableView
         self.view.addSubview(tableView)
         views["tableView"] = tableView
-        
+        self.tableView?.addSubview(refreshControl)
         let bgImage: UIImage = UIImage(named:"alpes")!
         if originalBackgroundImage == nil {
             originalBackgroundImage = bgImage
@@ -143,15 +158,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         //imageHeaderView!.layer.zPosition = 4
 
         
-        /*
-         * At this point tableHeader views are ordered like this:
-         * 0 : subHeaderPart
-         * 1 : headerImageView
-         * 2 : avatarImageView
-         */
-        
-        /* This is important, or section header will 'overlaps' the navbar */
-        //self.automaticallyAdjustsScrollViewInsets = true;
         
         var constraints:[NSLayoutConstraint] = [NSLayoutConstraint]()
         var constraint: NSLayoutConstraint = NSLayoutConstraint()
@@ -256,7 +262,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         //let uid = userauth.currentUser?.uid
         //Storage.storage().reference().child("profileImage").child(uid!)
         //var ut:UITapGestureRecognizer = sender
-        print((sender.view?.tag)!)
+        //print((sender.view?.tag)!)
         imagePicked = (sender.view?.tag)!
         let picker = UIImagePickerController()
         picker.delegate = self

@@ -25,11 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         //let vc = UINavigationController(rootViewController: HomeViewController())
-        let vc = TabBarViewController()
+        //let vc = TabBarViewController()
         //let vc = ChatLogViewController(collectionViewLayout: UICollectionViewLayout())
         //let vc = BlogPostViewController()
         //let vc = ProfileViewController()
         //let nv = UINavigationController(rootViewController: vc)
+        let vc = LoginViewController()
+        //let vc = RegisterViewController()
         UINavigationBar.appearance().tintColor = UIColor(rgb: 0x7EBCDC)
         application.statusBarStyle = .lightContent
         window?.rootViewController = vc

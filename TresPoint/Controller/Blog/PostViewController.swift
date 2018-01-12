@@ -15,6 +15,10 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(rgb:0xE5E6E7)
+        navigationItem.title = "Post"
+        //navigationController?.isNavigationBarHidden = false
+        //print(navigationItem.title)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(goback))
         setUpPost()
         // Do any additional setup after loading the view.
     }
@@ -22,6 +26,10 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func goback(){
+        dismiss(animated: true, completion: nil)
     }
     
     lazy var textTxt: UITextView = {
@@ -104,7 +112,7 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
         let constraints:[NSLayoutConstraint] = [
             textTxt.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:4),
             textTxt.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant:-4),
-            textTxt.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            textTxt.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor,constant: 20),
             textTxt.heightAnchor.constraint(equalToConstant: 200),
             countLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:-6),
             countLbl.widthAnchor.constraint(equalToConstant:40),

@@ -51,6 +51,17 @@ class LoginViewController: UIViewController {
         return login
     }()
     
+    let createAccount: UIButton = {
+        let tf = UIButton()
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.setTitle("Want to register an account for your company?", for: .normal)
+        tf.setTitleColor(UIColor.white, for: .normal)
+        tf.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+        tf.addTarget(self, action: #selector(goToRegister), for: .touchUpInside)
+        return tf
+    }()
+    
+    
     let nameTextField: UITextField = {
         let nametext = UITextField()
         nametext.placeholder = "Email"
@@ -105,6 +116,11 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @objc func goToRegister(){
+        let vc = RegisterViewController()
+        present(vc, animated: true, completion: nil)
+    }
+    
     func handleTap(){
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
         tapRecognizer.numberOfTapsRequired = 1
@@ -137,7 +153,7 @@ class LoginViewController: UIViewController {
             inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             inputsContainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             inputsContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24),
-            inputsContainerView.heightAnchor.constraint(equalToConstant: 100)
+            inputsContainerView.heightAnchor.constraint(equalToConstant: 100),
         ]
         NSLayoutConstraint.activate(constraints)
         inputsContainerView.addSubview(nameTextField)
@@ -160,15 +176,18 @@ class LoginViewController: UIViewController {
         NSLayoutConstraint.activate(nameTextConstraints)
     }
     
-    
 
     func setupLoginButton() {
         view.addSubview(loginButton)
+        view.addSubview(createAccount)
         let constraints:[NSLayoutConstraint] = [
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginButton.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 12),
             loginButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor),
-            loginButton.heightAnchor.constraint(equalToConstant: 50)
+            loginButton.heightAnchor.constraint(equalToConstant: 50),
+            createAccount.topAnchor.constraint(equalTo: loginButton.bottomAnchor),
+            createAccount.trailingAnchor.constraint(equalTo: loginButton.trailingAnchor, constant: 0),
+            createAccount.heightAnchor.constraint(equalToConstant: 48)
         ]
         NSLayoutConstraint.activate(constraints)
     }
@@ -194,15 +213,4 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

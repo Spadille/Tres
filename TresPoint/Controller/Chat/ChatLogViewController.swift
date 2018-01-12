@@ -252,12 +252,9 @@ class ChatLogViewController: UICollectionViewController,UITextFieldDelegate, UIC
                 }
             }
         })
+        
         uploadTask.observe(.progress) { (snapshot) in
             //print(snapshot.progress?.completedUnitCount)
-        }
-        
-        uploadTask.observe(.success) { (snapshot) in
-            
         }
     }
     
@@ -266,7 +263,7 @@ class ChatLogViewController: UICollectionViewController,UITextFieldDelegate, UIC
         let imageGenerator = AVAssetImageGenerator(asset: asset)
         do{
             let cgImage = try imageGenerator.copyCGImage(at: CMTimeMake(1, 60), actualTime: nil)
-            print("\(cgImage.height) and \(cgImage.width)")
+            //print("\(cgImage.height) and \(cgImage.width)")
             return UIImage(cgImage: cgImage)
         }catch let err{
             print(err.localizedDescription)

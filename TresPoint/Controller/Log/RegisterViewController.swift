@@ -51,6 +51,20 @@ class RegisterViewController: UIViewController {
         return register
     }()
     
+    let companyNameText: UITextField = {
+        let nametext = UITextField()
+        nametext.placeholder = "Company Name"
+        nametext.translatesAutoresizingMaskIntoConstraints = false
+        return nametext
+    }()
+    
+    let companySeperateView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 220, green: 220, blue: 220)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     let nameTextField: UITextField = {
         let nametext = UITextField()
         nametext.placeholder = "Full Name"
@@ -103,6 +117,20 @@ class RegisterViewController: UIViewController {
         return view
     }()
     
+    let backLogin: UIButton = {
+        let bl = UIButton()
+        bl.setTitle("back to login", for: .normal)
+        bl.setTitleColor(UIColor.white, for: .normal)
+        bl.translatesAutoresizingMaskIntoConstraints = false
+        bl.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        bl.addTarget(self, action: #selector(goback), for: .touchUpInside)
+        return bl
+    }()
+    
+    @objc func goback(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     let emailTextField: UITextField = {
         let nametext = UITextField()
         nametext.placeholder = "Email"
@@ -144,10 +172,10 @@ class RegisterViewController: UIViewController {
     }
     
     @objc func handleRegister(){
-        guard let email = emailTextField.text, let password = passwordTextField.text, let fullname = nameTextField.text,
+        guard let email = emailTextField.text, let password = passwordTextField.text, let fullname = nameTextField.text, let companyname = companyNameText.text,
         let phoneNumber = phoneNumberField.text else{
             //print("field empty")
-            appDelegate.infoView(message: "input field is empty", color: infoColor.colorSmoothRed)
+            appDelegate.infoView(message: "one or more input fields are empty", color: infoColor.colorSmoothRed)
             return
         }
         
@@ -157,7 +185,7 @@ class RegisterViewController: UIViewController {
                 return
             }
             let uid = user?.uid
-            let newUser = ["name":fullname,"email":email,"phonenumber":phoneNumber,"isWorking":"false","startWorkingTime":"00:00:00","totalWorkingTime":"0"]
+            let newUser = ["companyname":companyname,"name":fullname,"email":email,"phonenumber":phoneNumber,"isWorking":"false","startWorkingTime":"00:00:00","totalWorkingTime":"0"]
             let dataRef = Database.database().reference().child("users").child(uid!)
             dataRef.setValue(newUser)
             Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
@@ -182,6 +210,8 @@ class RegisterViewController: UIViewController {
             inputsContainerView.heightAnchor.constraint(equalToConstant: 160)
         ]
         NSLayoutConstraint.activate(constraints)
+        inputsContainerView.addSubview(companyNameText)
+        inputsContainerView.addSubview(companySeperateView)
         inputsContainerView.addSubview(nameTextField)
         inputsContainerView.addSubview(nameSeperateView)
         inputsContainerView.addSubview(passwordTextField)
@@ -190,10 +220,18 @@ class RegisterViewController: UIViewController {
         inputsContainerView.addSubview(phoneNumberSeperateView)
         inputsContainerView.addSubview(phoneNumberField)
         let nameTextConstraints: [NSLayoutConstraint] = [
+            companyNameText.leadingAnchor.constraint(equalTo: inputsContainerView.leadingAnchor, constant: 12),
+            companyNameText.topAnchor.constraint(equalTo: inputsContainerView.topAnchor),
+            companyNameText.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor),
+            companyNameText.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/5),
+            companySeperateView.leadingAnchor.constraint(equalTo: inputsContainerView.leadingAnchor),
+            companySeperateView.topAnchor.constraint(equalTo: companyNameText.bottomAnchor),
+            companySeperateView.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor),
+            companySeperateView.heightAnchor.constraint(equalToConstant: 1),
             nameTextField.leadingAnchor.constraint(equalTo: inputsContainerView.leadingAnchor, constant: 12),
-            nameTextField.topAnchor.constraint(equalTo: inputsContainerView.topAnchor),
+            nameTextField.topAnchor.constraint(equalTo: companyNameText.bottomAnchor),
             nameTextField.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor),
-            nameTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/4),
+            nameTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/5),
             nameSeperateView.leadingAnchor.constraint(equalTo: inputsContainerView.leadingAnchor),
             nameSeperateView.topAnchor.constraint(equalTo: nameTextField.bottomAnchor),
             nameSeperateView.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor),
@@ -201,7 +239,7 @@ class RegisterViewController: UIViewController {
             passwordTextField.leadingAnchor.constraint(equalTo: inputsContainerView.leadingAnchor, constant: 12),
             passwordTextField.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor),
             passwordTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor),
-            passwordTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/4),
+            passwordTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/5),
             emailSeperateView.leadingAnchor.constraint(equalTo: inputsContainerView.leadingAnchor),
             emailSeperateView.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor),
             emailSeperateView.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor),
@@ -209,7 +247,7 @@ class RegisterViewController: UIViewController {
             emailTextField.leadingAnchor.constraint(equalTo: inputsContainerView.leadingAnchor, constant: 12),
             emailTextField.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor),
             emailTextField.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor),
-            emailTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/4),
+            emailTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/5),
             phoneNumberSeperateView.leadingAnchor.constraint(equalTo: inputsContainerView.leadingAnchor),
             phoneNumberSeperateView.topAnchor.constraint(equalTo: emailTextField.bottomAnchor),
             phoneNumberSeperateView.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor),
@@ -217,7 +255,7 @@ class RegisterViewController: UIViewController {
             phoneNumberField.leadingAnchor.constraint(equalTo: inputsContainerView.leadingAnchor, constant: 12),
             phoneNumberField.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor),
             phoneNumberField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor),
-            phoneNumberField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/4),
+            phoneNumberField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/5),
         ]
         NSLayoutConstraint.activate(nameTextConstraints)
     }
@@ -226,11 +264,15 @@ class RegisterViewController: UIViewController {
     
     func setupLoginButton() {
         view.addSubview(registerButton)
+        view.addSubview(backLogin)
         let constraints:[NSLayoutConstraint] = [
             registerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             registerButton.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 12),
             registerButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor),
-            registerButton.heightAnchor.constraint(equalToConstant: 50)
+            registerButton.heightAnchor.constraint(equalToConstant: 50),
+            backLogin.trailingAnchor.constraint(equalTo: registerButton.trailingAnchor),
+            backLogin.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 0),
+            backLogin.heightAnchor.constraint(equalToConstant: 48)
         ]
         NSLayoutConstraint.activate(constraints)
     }

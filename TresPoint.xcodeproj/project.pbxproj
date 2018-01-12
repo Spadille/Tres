@@ -20,6 +20,7 @@
 		1133BC521FD0982B003D2472 /* workInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1133BC511FD0982B003D2472 /* workInfo.swift */; };
 		114C8FDB1FB53C450011CD65 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C8FDA1FB53C450011CD65 /* ChatMessageCell.swift */; };
 		11544B911FB3B3A10082C919 /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11544B901FB3B3A10082C919 /* ChatLogViewController.swift */; };
+		1154ECAF1FE1CCF8004EE2C2 /* UIViewController+Comments.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154ECAE1FE1CCF8004EE2C2 /* UIViewController+Comments.m */; };
 		116369F51FBB441B004DE2AF /* BlogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116369F41FBB441B004DE2AF /* BlogCell.swift */; };
 		11920D5D1FC61600002ADF79 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 11920D5C1FC61600002ADF79 /* UIImage+ImageEffects.m */; };
 		11C882EA1FBB80FC0076A405 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C882E91FBB80FC0076A405 /* Post.swift */; };
@@ -83,6 +84,8 @@
 		1133BC511FD0982B003D2472 /* workInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workInfo.swift; sourceTree = "<group>"; };
 		114C8FDA1FB53C450011CD65 /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		11544B901FB3B3A10082C919 /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
+		1154ECAD1FE1CCF8004EE2C2 /* UIViewController+Comments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Comments.h"; sourceTree = "<group>"; };
+		1154ECAE1FE1CCF8004EE2C2 /* UIViewController+Comments.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Comments.m"; sourceTree = "<group>"; };
 		116369F41FBB441B004DE2AF /* BlogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogCell.swift; sourceTree = "<group>"; };
 		11920D5A1FC615FF002ADF79 /* TresPoint-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TresPoint-Bridging-Header.h"; sourceTree = "<group>"; };
 		11920D5B1FC61600002ADF79 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -231,6 +234,8 @@
 			children = (
 				11EA81C61FB026BD008D67A7 /* BlogPostViewController.swift */,
 				11DA147A1FBCB4C800261D35 /* PostViewController.swift */,
+				1154ECAD1FE1CCF8004EE2C2 /* UIViewController+Comments.h */,
+				1154ECAE1FE1CCF8004EE2C2 /* UIViewController+Comments.m */,
 			);
 			path = Blog;
 			sourceTree = "<group>";
@@ -729,6 +734,7 @@
 				11EA81BD1FB00B7C008D67A7 /* User.swift in Sources */,
 				11EA81C31FB01FB8008D67A7 /* CustomTabBarItem.swift in Sources */,
 				11DA147B1FBCB4C800261D35 /* PostViewController.swift in Sources */,
+				1154ECAF1FE1CCF8004EE2C2 /* UIViewController+Comments.m in Sources */,
 				116369F51FBB441B004DE2AF /* BlogCell.swift in Sources */,
 				11EBE6EE1FACDEE000171DC8 /* UIColor+RGB.swift in Sources */,
 				11EA81BF1FB01EAC008D67A7 /* TabBarViewController.swift in Sources */,

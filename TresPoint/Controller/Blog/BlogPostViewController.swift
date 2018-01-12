@@ -26,7 +26,8 @@ class BlogPostViewController: UIViewController, UICollectionViewDelegateFlowLayo
     
     @objc func goToPost(){
         let pv = PostViewController()
-        self.present(pv, animated: true, completion: nil)
+        let nv = UINavigationController(rootViewController: pv)
+        self.present(nv, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -112,7 +113,6 @@ class BlogPostViewController: UIViewController, UICollectionViewDelegateFlowLayo
         ]
         NSLayoutConstraint.activate(constraints)
     }
-    
 }
 
 extension BlogPostViewController: UICollectionViewDelegate{
@@ -132,12 +132,12 @@ extension BlogPostViewController: UICollectionViewDataSource{
 //        if let bt = cell.likeButton as? subclassUIButton {
 //            bt.id =
 //        }
-//        cell.likeButton.addTarget(self, action: #selector(addLike), for: .touchUpInside)
-//        cell.commentButton.addTarget(self, action: #selector(addComment), for: .touchUpInside)
+        cell.likeButton.addTarget(self, action: #selector(addLike), for: .touchUpInside)
+        cell.commentButton.addTarget(self, action: #selector(addComment), for: .touchUpInside)
         return cell
     }
     
-//    @objc func addLike(_ sender: subclassUIButton){
+//    @objc func addLike(_ sender:){
 //        if let id = sender.id{
 //            let dataref = Database.database().reference().child("Posts").child(id)
 //            dataref.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -155,6 +155,10 @@ extension BlogPostViewController: UICollectionViewDataSource{
 //        }
 //    }
 
+    @objc func addLike(_ sender: UIButton){
+        
+    }
+    
     @objc func addComment(){
        // print(456)
     }
@@ -220,5 +224,4 @@ extension BlogPostViewController: UICollectionViewDataSource{
             }
         }
     }
-    
 }
